@@ -25,148 +25,143 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
+              <EmptySpace min="0" pref="2" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="76" max="32767" attributes="0"/>
-                      <Component id="panelVia" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="panelCodRenavam" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="panelRntrc" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="panelExercicio" min="-2" max="-2" attributes="0"/>
+                      <Component id="panelCapPotCil" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                      <Component id="panelCategoria" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                      <Component id="panelCor" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="panelEspecieTipo" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="panelNome" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="panelVia" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                  <Component id="panelCodRenavam" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                  <Component id="panelRntrc" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                  <Component id="panelExercicio" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Group type="102" attributes="0">
                                   <Component id="panelMarcaModelo" max="32767" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="panelAnoFab" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                  <Component id="panelAnoMod" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="panelAnoFab" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="panelAnoMod" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Component id="panelCombustivel" max="32767" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="panelEspecieTipo" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                  <Component id="panelCombustivel" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="panelCapPotCil" max="32767" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="panelCategoria" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="panelCor" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="panelCpfCnpj" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="panelPlaca" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="panelPlacaAnt" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                  <Component id="panelChassi" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="panelIpva" max="32767" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Component id="panelPremioTarifario" max="32767" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="panelIof" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="panelPremioTotal" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="panelDataPagamento" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="panelNome" max="32767" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="panelPlacaAnt" max="32767" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="panelChassi" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="panelCpfCnpj" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="panelPlaca" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="panelObservacoes" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="panelLocal" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="panelData" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="panelPremioTarifario" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                      <Component id="panelIof" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                      <Component id="panelPremioTotal" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                      <Component id="panelDataPagamento" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="panelLocal" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                      <Component id="panelData" max="32767" attributes="0"/>
+                  </Group>
+                  <Component id="panelObservacoes" alignment="0" max="32767" attributes="0"/>
+                  <Component id="panelIpva" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace min="0" pref="2" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace pref="31" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="panelVia" max="32767" attributes="0"/>
-                  <Component id="panelCodRenavam" max="32767" attributes="0"/>
-                  <Component id="panelExercicio" max="32767" attributes="0"/>
-                  <Component id="panelRntrc" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="panelNome" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace pref="30" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="panelCpfCnpj" min="-2" max="-2" attributes="0"/>
-                  <Component id="panelPlaca" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="panelPlacaAnt" min="-2" max="-2" attributes="0"/>
-                  <Component id="panelChassi" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="panelEspecieTipo" max="32767" attributes="0"/>
-                  <Component id="panelCombustivel" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                  <Component id="panelAnoFab" alignment="0" max="32767" attributes="0"/>
-                  <Component id="panelAnoMod" max="32767" attributes="0"/>
-                  <Component id="panelMarcaModelo" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                  <Component id="panelCor" max="32767" attributes="0"/>
-                  <Component id="panelCapPotCil" max="32767" attributes="0"/>
-                  <Component id="panelCategoria" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="panelIpva" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                  <Component id="panelIof" alignment="0" max="32767" attributes="0"/>
-                  <Component id="panelDataPagamento" alignment="0" max="32767" attributes="0"/>
-                  <Component id="panelPremioTarifario" max="32767" attributes="0"/>
-                  <Component id="panelPremioTotal" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="panelObservacoes" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="panelLocal" min="-2" max="-2" attributes="0"/>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="panelData" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="panelIpva" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="panelPremioTotal" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="panelDataPagamento" min="-2" max="-2" attributes="0"/>
+                          <Component id="panelPremioTarifario" alignment="0" min="-2" pref="48" max="-2" attributes="0"/>
+                          <Component id="panelIof" min="-2" pref="48" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                      <Component id="panelObservacoes" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="panelLocal" min="-2" max="-2" attributes="0"/>
+                          <Component id="panelData" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="panelVia" max="32767" attributes="0"/>
+                          <Component id="panelCodRenavam" max="32767" attributes="0"/>
+                          <Component id="panelExercicio" max="32767" attributes="0"/>
+                          <Component id="panelRntrc" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                      <Component id="panelNome" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="panelCpfCnpj" min="-2" max="-2" attributes="0"/>
+                          <Component id="panelPlaca" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="panelChassi" max="32767" attributes="0"/>
+                          <Component id="panelPlacaAnt" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="panelCombustivel" min="-2" max="-2" attributes="0"/>
+                          <Component id="panelEspecieTipo" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="panelAnoFab" alignment="0" max="32767" attributes="0"/>
+                          <Component id="panelAnoMod" max="32767" attributes="0"/>
+                          <Component id="panelMarcaModelo" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="panelCor" max="32767" attributes="0"/>
+                              <Component id="panelCapPotCil" max="32767" attributes="0"/>
+                          </Group>
+                          <Component id="panelCategoria" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
+              <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -368,7 +363,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="txtPlaca" alignment="0" max="32767" attributes="0"/>
+              <Component id="txtPlaca" alignment="0" pref="190" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -397,7 +392,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="txtPlacaAnt" alignment="0" max="32767" attributes="0"/>
+              <Component id="txtPlacaAnt" alignment="0" pref="153" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -423,7 +418,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="txtChassi" alignment="0" pref="270" max="32767" attributes="0"/>
+              <Component id="txtChassi" alignment="0" pref="246" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -449,7 +444,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="txtEspecie" alignment="0" pref="250" max="32767" attributes="0"/>
+              <Component id="txtEspecie" alignment="0" pref="191" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -475,12 +470,12 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="txtCombustivel" alignment="0" max="32767" attributes="0"/>
+              <Component id="txtCombustivel" alignment="0" pref="206" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="txtCombustivel" min="-2" max="-2" attributes="0"/>
+              <Component id="txtCombustivel" alignment="1" min="-2" max="-2" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
@@ -501,7 +496,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="txtMarcaModelo" alignment="1" max="32767" attributes="0"/>
+              <Component id="txtMarcaModelo" alignment="1" pref="210" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -527,7 +522,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="txtAnoFab" alignment="0" pref="106" max="32767" attributes="0"/>
+              <Component id="txtAnoFab" alignment="0" pref="100" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -559,7 +554,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="txtAnoMod" alignment="0" max="32767" attributes="0"/>
+              <Component id="txtAnoMod" alignment="0" pref="77" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -617,7 +612,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="txtCategoria" alignment="0" pref="139" max="32767" attributes="0"/>
+              <Component id="txtCategoria" alignment="0" pref="106" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -682,15 +677,15 @@
                               <Component id="panelCotaUnica" max="32767" attributes="0"/>
                               <Component id="panelFaixaIpva" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="panelParcelamentoCotas" max="32767" attributes="0"/>
                               <Component id="panelVencCotaUnica" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <Component id="jSeparator1" min="-2" pref="299" max="-2" attributes="0"/>
+                      <Component id="jSeparator1" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   <Component id="panelVencCotas" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -698,24 +693,19 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="panelCotaUnica" max="32767" attributes="0"/>
-                              <Component id="panelVencCotaUnica" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jSeparator1" min="-2" pref="5" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="panelParcelamentoCotas" min="-2" max="-2" attributes="0"/>
-                              <Component id="panelFaixaIpva" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Component id="panelVencCotas" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="panelCotaUnica" max="32767" attributes="0"/>
+                      <Component id="panelVencCotaUnica" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                  <Component id="jSeparator1" min="-2" pref="5" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="panelParcelamentoCotas" min="-2" max="-2" attributes="0"/>
+                      <Component id="panelFaixaIpva" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
+              <Component id="panelVencCotas" alignment="0" min="-2" max="-2" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
@@ -924,12 +914,12 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="txtPremioTarifario" alignment="0" max="32767" attributes="0"/>
+              <Component id="txtPremioTarifario" alignment="0" pref="135" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="txtPremioTarifario" min="-2" max="-2" attributes="0"/>
+              <Component id="txtPremioTarifario" alignment="1" min="-2" max="-2" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
@@ -942,7 +932,7 @@
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder justification="2" title="IOF (R$)"/>
+            <TitledBorder justification="2" title="IOF"/>
           </Border>
         </Property>
       </Properties>
@@ -950,12 +940,12 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="txtIof" alignment="0" pref="70" max="32767" attributes="0"/>
+              <Component id="txtIof" alignment="0" pref="52" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="txtIof" min="-2" max="-2" attributes="0"/>
+              <Component id="txtIof" alignment="1" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
@@ -968,7 +958,7 @@
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder justification="2" title="Pr&#xea;mio Total (R$)"/>
+            <TitledBorder justification="2" title="Pr&#xea;mio Total"/>
           </Border>
         </Property>
       </Properties>
@@ -976,12 +966,12 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="txtPremioTotal" alignment="0" pref="146" max="32767" attributes="0"/>
+              <Component id="txtPremioTotal" alignment="0" pref="106" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="txtPremioTotal" min="-2" max="-2" attributes="0"/>
+              <Component id="txtPremioTotal" alignment="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
@@ -1031,12 +1021,15 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="jScrollPane2" max="32767" attributes="0"/>
+              <Component id="jScrollPane2" alignment="1" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="jScrollPane2" min="-2" max="-2" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <Component id="jScrollPane2" pref="59" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+              </Group>
           </Group>
         </DimensionLayout>
       </Layout>
@@ -1096,7 +1089,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="txtLocal" alignment="1" pref="264" max="32767" attributes="0"/>
+              <Component id="txtLocal" alignment="1" pref="175" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
