@@ -4,6 +4,9 @@
  */
 package compsi.crlv.view;
 
+import compsi.crlv.controller.ControllerLeitora;
+import pkcs11_lea.MainGui;
+
 /**
  *
  * @author allan
@@ -29,12 +32,22 @@ public class MainWondow extends javax.swing.JFrame {
         desktop = new javax.swing.JDesktopPane();
         mbMainWindow = new javax.swing.JMenuBar();
         menuLeitora = new javax.swing.JMenu();
+        menuConectarLeitora = new javax.swing.JMenuItem();
         menuCrlv = new javax.swing.JMenu();
         miFormularioCrlv = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         menuLeitora.setText("Leitora");
+
+        menuConectarLeitora.setText("Conectar");
+        menuConectarLeitora.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuConectarLeitoraActionPerformed(evt);
+            }
+        });
+        menuLeitora.add(menuConectarLeitora);
+
         mbMainWindow.add(menuLeitora);
 
         menuCrlv.setText("CRLV");
@@ -59,7 +72,7 @@ public class MainWondow extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktop, javax.swing.GroupLayout.DEFAULT_SIZE, 495, Short.MAX_VALUE)
+            .addComponent(desktop, javax.swing.GroupLayout.DEFAULT_SIZE, 503, Short.MAX_VALUE)
         );
 
         pack();
@@ -67,10 +80,20 @@ public class MainWondow extends javax.swing.JFrame {
 
     private void miFormularioCrlvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miFormularioCrlvActionPerformed
         // TODO add your handling code here:
-        JIFFormularioCrlv f = new JIFFormularioCrlv();
+        JIFCrlv f = new JIFCrlv();
         desktop.add(f);
         f.setVisible(true);
     }//GEN-LAST:event_miFormularioCrlvActionPerformed
+
+    private void menuConectarLeitoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuConectarLeitoraActionPerformed
+        // TODO add your handling code here:
+        //String setProperty = System.setProperty("sun.security.smartcardio.t0GetResponse", "false");
+        JIFLeitora con = new JIFLeitora();
+        ControllerLeitora conl = new ControllerLeitora(con);
+        desktop.add(con);
+        //con.setLocation(null);
+        con.setVisible(true);
+    }//GEN-LAST:event_menuConectarLeitoraActionPerformed
 
     /**
      * @param args the command line arguments
@@ -109,6 +132,7 @@ public class MainWondow extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane desktop;
     private javax.swing.JMenuBar mbMainWindow;
+    private javax.swing.JMenuItem menuConectarLeitora;
     private javax.swing.JMenu menuCrlv;
     private javax.swing.JMenu menuLeitora;
     private javax.swing.JMenuItem miFormularioCrlv;

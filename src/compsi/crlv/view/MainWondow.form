@@ -8,6 +8,16 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Leitora"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="menuConectarLeitora">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Conectar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuConectarLeitoraActionPerformed"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="menuCrlv">
           <Properties>
@@ -55,7 +65,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="desktop" alignment="0" pref="495" max="32767" attributes="0"/>
+          <Component id="desktop" alignment="0" pref="527" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
