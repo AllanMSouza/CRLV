@@ -5,6 +5,10 @@
 package compsi.crlv.view;
 
 import compsi.crlv.controller.ControllerLeitora;
+import javax.swing.JDesktopPane;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import pkcs11_lea.MainGui;
 
 /**
@@ -35,6 +39,11 @@ public class MainWondow extends javax.swing.JFrame {
         menuConectarLeitora = new javax.swing.JMenuItem();
         menuCrlv = new javax.swing.JMenu();
         miFormularioCrlv = new javax.swing.JMenuItem();
+        menuAssinador = new javax.swing.JMenu();
+        menuSmartCard = new javax.swing.JMenu();
+        menuConfiguracoesSmartCard = new javax.swing.JMenu();
+        miInicializarCartao = new javax.swing.JMenuItem();
+        miVersao = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,6 +71,23 @@ public class MainWondow extends javax.swing.JFrame {
 
         mbMainWindow.add(menuCrlv);
 
+        menuAssinador.setText("Assinador");
+        mbMainWindow.add(menuAssinador);
+
+        menuSmartCard.setText("Smart Card");
+
+        menuConfiguracoesSmartCard.setText("Configurações");
+
+        miInicializarCartao.setText("Inicializar Cartão");
+        menuConfiguracoesSmartCard.add(miInicializarCartao);
+
+        miVersao.setText("Versão");
+        menuConfiguracoesSmartCard.add(miVersao);
+
+        menuSmartCard.add(menuConfiguracoesSmartCard);
+
+        mbMainWindow.add(menuSmartCard);
+
         setJMenuBar(mbMainWindow);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -72,7 +98,7 @@ public class MainWondow extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktop, javax.swing.GroupLayout.DEFAULT_SIZE, 503, Short.MAX_VALUE)
+            .addComponent(desktop, javax.swing.GroupLayout.DEFAULT_SIZE, 529, Short.MAX_VALUE)
         );
 
         pack();
@@ -129,12 +155,107 @@ public class MainWondow extends javax.swing.JFrame {
             }
         });
     }
+
+    public JDesktopPane getDesktop() {
+        return desktop;
+    }
+
+    public void setDesktop(JDesktopPane desktop) {
+        this.desktop = desktop;
+    }
+
+    public JMenuBar getMbMainWindow() {
+        return mbMainWindow;
+    }
+
+    public void setMbMainWindow(JMenuBar mbMainWindow) {
+        this.mbMainWindow = mbMainWindow;
+    }
+
+    public JMenu getMenuAssinador() {
+        return menuAssinador;
+    }
+
+    public void setMenuAssinador(JMenu menuAssinador) {
+        this.menuAssinador = menuAssinador;
+    }
+
+    public JMenuItem getMenuConectarLeitora() {
+        return menuConectarLeitora;
+    }
+
+    public void setMenuConectarLeitora(JMenuItem menuConectarLeitora) {
+        this.menuConectarLeitora = menuConectarLeitora;
+    }
+
+    public JMenu getMenuConfiguracoesSmartCard() {
+        return menuConfiguracoesSmartCard;
+    }
+
+    public void setMenuConfiguracoesSmartCard(JMenu menuConfiguracoesSmartCard) {
+        this.menuConfiguracoesSmartCard = menuConfiguracoesSmartCard;
+    }
+
+    public JMenu getMenuCrlv() {
+        return menuCrlv;
+    }
+
+    public void setMenuCrlv(JMenu menuCrlv) {
+        this.menuCrlv = menuCrlv;
+    }
+
+    public JMenu getMenuLeitora() {
+        return menuLeitora;
+    }
+
+    public void setMenuLeitora(JMenu menuLeitora) {
+        this.menuLeitora = menuLeitora;
+    }
+
+    public JMenu getMenuSmartCard() {
+        return menuSmartCard;
+    }
+
+    public void setMenuSmartCard(JMenu menuSmartCard) {
+        this.menuSmartCard = menuSmartCard;
+    }
+
+    public JMenuItem getMiFormularioCrlv() {
+        return miFormularioCrlv;
+    }
+
+    public void setMiFormularioCrlv(JMenuItem miFormularioCrlv) {
+        this.miFormularioCrlv = miFormularioCrlv;
+    }
+
+    public JMenuItem getMiInicializarCartao() {
+        return miInicializarCartao;
+    }
+
+    public void setMiInicializarCartao(JMenuItem miInicializarCartao) {
+        this.miInicializarCartao = miInicializarCartao;
+    }
+
+    public JMenuItem getMiVersao() {
+        return miVersao;
+    }
+
+    public void setMiVersao(JMenuItem miVersao) {
+        this.miVersao = miVersao;
+    }
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane desktop;
     private javax.swing.JMenuBar mbMainWindow;
+    private javax.swing.JMenu menuAssinador;
     private javax.swing.JMenuItem menuConectarLeitora;
+    private javax.swing.JMenu menuConfiguracoesSmartCard;
     private javax.swing.JMenu menuCrlv;
     private javax.swing.JMenu menuLeitora;
+    private javax.swing.JMenu menuSmartCard;
     private javax.swing.JMenuItem miFormularioCrlv;
+    private javax.swing.JMenuItem miInicializarCartao;
+    private javax.swing.JMenuItem miVersao;
     // End of variables declaration//GEN-END:variables
 }
