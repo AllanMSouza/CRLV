@@ -46,6 +46,7 @@ public class JIFLeitora extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setIconifiable(true);
+        setTitle("Leitora Manager");
 
         pcscReadersComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,17 +88,17 @@ public class JIFLeitora extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(pcscReadersComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(pcscReadersComboBox, 0, 342, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(protocolT0Radio)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(protocolT1Radio)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btConectar)))
-                .addGap(0, 25, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -109,11 +110,14 @@ public class JIFLeitora extends javax.swing.JInternalFrame {
                     .addComponent(protocolT1Radio)
                     .addComponent(btConectar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
-        setBounds(0, 0, 464, 270);
+        getAccessibleContext().setAccessibleName("Leitora Manager");
+
+        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+        setBounds((screenSize.width-586)/2, (screenSize.height-324)/2, 586, 324);
     }// </editor-fold>//GEN-END:initComponents
 
     
@@ -134,55 +138,7 @@ public class JIFLeitora extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_protocolT0RadioActionPerformed
 
     private void btConectarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConectarActionPerformed
-        // TODO add your handling code here:
-//         String transportProtocol = "";
-//        String resultado;
-//
-//        if (btConectar.getText().equals("Conectar")) {
-//
-//            Enumeration<AbstractButton> elements = pcscProtocolTransportGroup.getElements();
-//
-//            while (elements.hasMoreElements()) {
-//                JRadioButton radio = (JRadioButton) elements.nextElement();
-//
-//                if (radio.isSelected()) {
-//                    transportProtocol = radio.getText();
-//                }
-//            }
-//            try {
-//
-//                CommandProcessor.process("connect " + pcscReadersComboBox.getSelectedIndex() + " " + transportProtocol);
-//
-//                btConectar.setText("Desconectar");
-//
-//                Cursor hourglassCursor = new Cursor(Cursor.WAIT_CURSOR);
-//                setCursor(hourglassCursor);
-//
-//                resultado = Select_APPL();
-//                this.setVisible(false);
-////                JDialog_Docs_Manager jDialog_Docs_Manager = new JDialog_Docs_Manager(this,true);
-////                jDialog_Docs_Manager.setLocationRelativeTo(null);
-////                jDialog_Docs_Manager.setVisible(true);
-//                
-//
-//                Cursor normalCursor = new Cursor(Cursor.DEFAULT_CURSOR);
-//                setCursor(normalCursor);
-//
-//            } catch (Exception ex) {
-//                Logger.getLogger(MainGui.class.getName()).log(Level.SEVERE, null, ex);
-//                ex.getMessage();
-//                ex.getLocalizedMessage();
-//            }
-//
-//        } else if (btConectar.getText().equals("Desconectar")) {
-//            try {
-//                CommandProcessor.process("disconnect");
-//            } catch (Exception ex) {
-//                Logger.getLogger(MainGui.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//
-//            btConectar.setText("Conectar");
-//        }
+  
     }//GEN-LAST:event_btConectarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -44,6 +44,13 @@ public class MainWondow extends javax.swing.JFrame {
         menuConfiguracoesSmartCard = new javax.swing.JMenu();
         miInicializarCartao = new javax.swing.JMenuItem();
         miVersao = new javax.swing.JMenuItem();
+        miDesbloquearPIN = new javax.swing.JMenuItem();
+        miTrocarPUK = new javax.swing.JMenuItem();
+        miTrocarPIN = new javax.swing.JMenuItem();
+        miVerificarDocumento = new javax.swing.JMenuItem();
+        miGravarDocumento = new javax.swing.JMenuItem();
+        miRecuperarDocumento = new javax.swing.JMenuItem();
+        miDeletarDocumento = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -84,7 +91,28 @@ public class MainWondow extends javax.swing.JFrame {
         miVersao.setText("Versão");
         menuConfiguracoesSmartCard.add(miVersao);
 
+        miDesbloquearPIN.setText("Desbloquear PIN");
+        menuConfiguracoesSmartCard.add(miDesbloquearPIN);
+
+        miTrocarPUK.setText("Trocar PUK");
+        menuConfiguracoesSmartCard.add(miTrocarPUK);
+
+        miTrocarPIN.setText("Trocar PIN");
+        menuConfiguracoesSmartCard.add(miTrocarPIN);
+
         menuSmartCard.add(menuConfiguracoesSmartCard);
+
+        miVerificarDocumento.setText("Verificar Documento");
+        menuSmartCard.add(miVerificarDocumento);
+
+        miGravarDocumento.setText("Gravar Documento");
+        menuSmartCard.add(miGravarDocumento);
+
+        miRecuperarDocumento.setText("Recuperar Documento");
+        menuSmartCard.add(miRecuperarDocumento);
+
+        miDeletarDocumento.setText("Deletar Documento");
+        menuSmartCard.add(miDeletarDocumento);
 
         mbMainWindow.add(menuSmartCard);
 
@@ -106,9 +134,7 @@ public class MainWondow extends javax.swing.JFrame {
 
     private void miFormularioCrlvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miFormularioCrlvActionPerformed
         // TODO add your handling code here:
-        JIFCrlv f = new JIFCrlv();
-        desktop.add(f);
-        f.setVisible(true);
+        
     }//GEN-LAST:event_miFormularioCrlvActionPerformed
 
     private void menuConectarLeitoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuConectarLeitoraActionPerformed
@@ -243,6 +269,64 @@ public class MainWondow extends javax.swing.JFrame {
     public void setMiVersao(JMenuItem miVersao) {
         this.miVersao = miVersao;
     }
+
+    public JMenuItem getMiDesbloquearPIN() {
+        return miDesbloquearPIN;
+    }
+
+    public void setMiDesbloquearPIN(JMenuItem miDesbloquearPIN) {
+        this.miDesbloquearPIN = miDesbloquearPIN;
+    }
+
+    public JMenuItem getMiTrocarPIN() {
+        return miTrocarPIN;
+    }
+
+    public void setMiTrocarPIN(JMenuItem miTrocarPIN) {
+        this.miTrocarPIN = miTrocarPIN;
+    }
+
+    public JMenuItem getMiTrocarPUK() {
+        return miTrocarPUK;
+    }
+
+    public void setMiTrocarPUK(JMenuItem miTrocarPUK) {
+        this.miTrocarPUK = miTrocarPUK;
+    }
+
+    public JMenuItem getMiVerificarDocumento() {
+        return miVerificarDocumento;
+    }
+
+    public void setMiVerificarDocumento(JMenuItem miVerificarDocumento) {
+        this.miVerificarDocumento = miVerificarDocumento;
+    }
+
+    public JMenuItem getMiDeletarDocumento() {
+        return miDeletarDocumento;
+    }
+
+    public void setMiDeletarDocumento(JMenuItem miDeletarDocumento) {
+        this.miDeletarDocumento = miDeletarDocumento;
+    }
+
+    public JMenuItem getMiGravarDocumento() {
+        return miGravarDocumento;
+    }
+
+    public void setMiGravarDocumento(JMenuItem miGravarDocumento) {
+        this.miGravarDocumento = miGravarDocumento;
+    }
+
+    public JMenuItem getMiRecuperarDocumento() {
+        return miRecuperarDocumento;
+    }
+
+    public void setMiRecuperarDocumento(JMenuItem miRecuperarDocumento) {
+        this.miRecuperarDocumento = miRecuperarDocumento;
+    }
+    
+    
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -254,8 +338,15 @@ public class MainWondow extends javax.swing.JFrame {
     private javax.swing.JMenu menuCrlv;
     private javax.swing.JMenu menuLeitora;
     private javax.swing.JMenu menuSmartCard;
+    private javax.swing.JMenuItem miDeletarDocumento;
+    private javax.swing.JMenuItem miDesbloquearPIN;
     private javax.swing.JMenuItem miFormularioCrlv;
+    private javax.swing.JMenuItem miGravarDocumento;
     private javax.swing.JMenuItem miInicializarCartao;
+    private javax.swing.JMenuItem miRecuperarDocumento;
+    private javax.swing.JMenuItem miTrocarPIN;
+    private javax.swing.JMenuItem miTrocarPUK;
+    private javax.swing.JMenuItem miVerificarDocumento;
     private javax.swing.JMenuItem miVersao;
     // End of variables declaration//GEN-END:variables
 }

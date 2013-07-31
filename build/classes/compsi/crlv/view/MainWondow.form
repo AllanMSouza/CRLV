@@ -59,8 +59,43 @@
                     <Property name="text" type="java.lang.String" value="Vers&#xe3;o"/>
                   </Properties>
                 </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="miDesbloquearPIN">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Desbloquear PIN"/>
+                  </Properties>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="miTrocarPUK">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Trocar PUK"/>
+                  </Properties>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="miTrocarPIN">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Trocar PIN"/>
+                  </Properties>
+                </MenuItem>
               </SubComponents>
             </Menu>
+            <MenuItem class="javax.swing.JMenuItem" name="miVerificarDocumento">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Verificar Documento"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="miGravarDocumento">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Gravar Documento"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="miRecuperarDocumento">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Recuperar Documento"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="miDeletarDocumento">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Deletar Documento"/>
+              </Properties>
+            </MenuItem>
           </SubComponents>
         </Menu>
       </SubComponents>
