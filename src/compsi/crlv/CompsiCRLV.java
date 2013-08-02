@@ -5,9 +5,10 @@
 package compsi.crlv;
 import compsi.crlv.controller.ControllerLeitora;
 import compsi.crlv.controller.ControllerSmartCard;
-import compsi.crlv.view.JIFCrlv;
 import compsi.crlv.view.JIFLeitora;
 import compsi.crlv.view.MainWondow;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.security.NoSuchAlgorithmException;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -27,15 +28,19 @@ public class CompsiCRLV {
         UIManager.setLookAndFeel(looks[1].getClassName());
         
         MainWondow m = new MainWondow();
-        //JIFLeitora l = new JIFLeitora();
+        Dimension tela = Toolkit.getDefaultToolkit().getScreenSize();   
         JIFLeitora con = new JIFLeitora();
                 
         ControllerLeitora conl = new ControllerLeitora(con);       
         ControllerSmartCard csc = new ControllerSmartCard(m,con);
         
+        m.getLblLsitec().setBounds(0, tela.height/2, tela.width, 200);
         m.getDesktop().add(con);
         m.setLocationRelativeTo(null);
         m.setVisible(true);
+        m.setSize(tela.width, tela.height);
+        m.setExtendedState(m.MAXIMIZED_BOTH);
+        
         
         
         

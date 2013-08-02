@@ -6,6 +6,7 @@ package compsi.crlv.view;
 
 import compsi.crlv.controller.ControllerLeitora;
 import javax.swing.JDesktopPane;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -34,6 +35,7 @@ public class MainWondow extends javax.swing.JFrame {
     private void initComponents() {
 
         desktop = new javax.swing.JDesktopPane();
+        lblLsitec = new javax.swing.JLabel();
         mbMainWindow = new javax.swing.JMenuBar();
         menuLeitora = new javax.swing.JMenu();
         menuConectarLeitora = new javax.swing.JMenuItem();
@@ -56,6 +58,14 @@ public class MainWondow extends javax.swing.JFrame {
         miDeletarDocumento = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        lblLsitec.setBackground(new java.awt.Color(254, 254, 254));
+        lblLsitec.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblLsitec.setIcon(new javax.swing.ImageIcon(getClass().getResource("/compsi/crlv/view/lsitec.jpg"))); // NOI18N
+        lblLsitec.setLabelFor(desktop);
+        lblLsitec.setOpaque(true);
+        lblLsitec.setBounds(0, 240, 442, 120);
+        desktop.add(lblLsitec, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         menuLeitora.setText("Leitora");
 
@@ -143,10 +153,11 @@ public class MainWondow extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktop, javax.swing.GroupLayout.DEFAULT_SIZE, 533, Short.MAX_VALUE)
+            .addComponent(desktop, javax.swing.GroupLayout.DEFAULT_SIZE, 541, Short.MAX_VALUE)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void miFormularioCrlvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miFormularioCrlvActionPerformed
@@ -346,12 +357,43 @@ public class MainWondow extends javax.swing.JFrame {
     public void setMiRecuperarDocumento(JMenuItem miRecuperarDocumento) {
         this.miRecuperarDocumento = miRecuperarDocumento;
     }
-    
-    
+
+    public JLabel getLblLsitec() {
+        return lblLsitec;
+    }
+
+    public void setLblLsitec(JLabel lblLsitec) {
+        this.lblLsitec = lblLsitec;
+    }
+
+    public JMenuItem getMiGerarXML() {
+        return miGerarXML;
+    }
+
+    public void setMiGerarXML(JMenuItem miGerarXML) {
+        this.miGerarXML = miGerarXML;
+    }
+
+    public JMenuItem getMiListarDocumentos() {
+        return miListarDocumentos;
+    }
+
+    public void setMiListarDocumentos(JMenuItem miListarDocumentos) {
+        this.miListarDocumentos = miListarDocumentos;
+    }
+
+    public JMenuItem getMiVizualizarDocumento() {
+        return miVizualizarDocumento;
+    }
+
+    public void setMiVizualizarDocumento(JMenuItem miVizualizarDocumento) {
+        this.miVizualizarDocumento = miVizualizarDocumento;
+    }   
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane desktop;
+    private javax.swing.JLabel lblLsitec;
     private javax.swing.JMenuBar mbMainWindow;
     private javax.swing.JMenu menuAssinador;
     private javax.swing.JMenuItem menuConectarLeitora;
