@@ -39,6 +39,9 @@ public class MainWondow extends javax.swing.JFrame {
         menuConectarLeitora = new javax.swing.JMenuItem();
         menuCrlv = new javax.swing.JMenu();
         miFormularioCrlv = new javax.swing.JMenuItem();
+        miListarDocumentos = new javax.swing.JMenuItem();
+        miGerarXML = new javax.swing.JMenuItem();
+        miVizualizarDocumento = new javax.swing.JMenuItem();
         menuAssinador = new javax.swing.JMenu();
         menuSmartCard = new javax.swing.JMenu();
         menuConfiguracoesSmartCard = new javax.swing.JMenu();
@@ -75,6 +78,20 @@ public class MainWondow extends javax.swing.JFrame {
             }
         });
         menuCrlv.add(miFormularioCrlv);
+
+        miListarDocumentos.setText("Listar Documentos");
+        miListarDocumentos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miListarDocumentosActionPerformed(evt);
+            }
+        });
+        menuCrlv.add(miListarDocumentos);
+
+        miGerarXML.setText("Gerar XML");
+        menuCrlv.add(miGerarXML);
+
+        miVizualizarDocumento.setText("Vizualizar Documento");
+        menuCrlv.add(miVizualizarDocumento);
 
         mbMainWindow.add(menuCrlv);
 
@@ -126,7 +143,7 @@ public class MainWondow extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktop, javax.swing.GroupLayout.DEFAULT_SIZE, 529, Short.MAX_VALUE)
+            .addComponent(desktop, javax.swing.GroupLayout.DEFAULT_SIZE, 533, Short.MAX_VALUE)
         );
 
         pack();
@@ -146,6 +163,10 @@ public class MainWondow extends javax.swing.JFrame {
         //con.setLocation(null);
         con.setVisible(true);
     }//GEN-LAST:event_menuConectarLeitoraActionPerformed
+
+    private void miListarDocumentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miListarDocumentosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_miListarDocumentosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -341,12 +362,15 @@ public class MainWondow extends javax.swing.JFrame {
     private javax.swing.JMenuItem miDeletarDocumento;
     private javax.swing.JMenuItem miDesbloquearPIN;
     private javax.swing.JMenuItem miFormularioCrlv;
+    private javax.swing.JMenuItem miGerarXML;
     private javax.swing.JMenuItem miGravarDocumento;
     private javax.swing.JMenuItem miInicializarCartao;
+    private javax.swing.JMenuItem miListarDocumentos;
     private javax.swing.JMenuItem miRecuperarDocumento;
     private javax.swing.JMenuItem miTrocarPIN;
     private javax.swing.JMenuItem miTrocarPUK;
     private javax.swing.JMenuItem miVerificarDocumento;
     private javax.swing.JMenuItem miVersao;
+    private javax.swing.JMenuItem miVizualizarDocumento;
     // End of variables declaration//GEN-END:variables
 }

@@ -93,7 +93,7 @@ public class ControllerSmartCard implements ActionListener {
                                        
                 case "Versão":
                     result = getVersion();
-                    JOptionPane.showMessageDialog(null, "Versão: "+result);
+                    JOptionPane.showMessageDialog(mw.getDesktop(), "Versão: "+result);
                     break;
                     
                 case "Desbloquear PIN":

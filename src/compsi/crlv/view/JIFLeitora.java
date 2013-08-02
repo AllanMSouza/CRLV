@@ -151,19 +151,6 @@ public class JIFLeitora extends javax.swing.JInternalFrame {
     private javax.swing.JRadioButton protocolT1Radio;
     // End of variables declaration//GEN-END:variables
 
-    public static void main(String args[]) {
-        String setProperty = System.setProperty("sun.security.smartcardio.t0GetResponse", "false");
-        //     System.out.println("setProperty "+setProperty);
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new JIFLeitora().setVisible(true);
-
-            }
-        });
-    }
-      
-
     public static JTextArea getConsole() {
         return jTextAreaConsole;
     }
