@@ -4,6 +4,11 @@
  */
 package compsi.crlv.view;
 
+import javax.swing.JButton;
+import javax.swing.JMenu;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
 /**
  *
  * @author allan
@@ -98,6 +103,8 @@ public class JIFCrlv extends javax.swing.JInternalFrame {
         txtData = new javax.swing.JTextField();
         panelLocal = new javax.swing.JPanel();
         txtLocal = new javax.swing.JTextField();
+        jToolBar1 = new javax.swing.JToolBar();
+        btSalvar = new javax.swing.JButton();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
@@ -137,9 +144,7 @@ public class JIFCrlv extends javax.swing.JInternalFrame {
         panelCodRenavam.setLayout(panelCodRenavamLayout);
         panelCodRenavamLayout.setHorizontalGroup(
             panelCodRenavamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelCodRenavamLayout.createSequentialGroup()
-                .addComponent(txtCodRenavam, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(txtCodRenavam, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
         );
         panelCodRenavamLayout.setVerticalGroup(
             panelCodRenavamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -152,7 +157,7 @@ public class JIFCrlv extends javax.swing.JInternalFrame {
         panelRntrc.setLayout(panelRntrcLayout);
         panelRntrcLayout.setHorizontalGroup(
             panelRntrcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txtRntrc, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
+            .addComponent(txtRntrc, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
         );
         panelRntrcLayout.setVerticalGroup(
             panelRntrcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -201,7 +206,7 @@ public class JIFCrlv extends javax.swing.JInternalFrame {
         panelCpfCnpj.setLayout(panelCpfCnpjLayout);
         panelCpfCnpjLayout.setHorizontalGroup(
             panelCpfCnpjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txtCpfCnpj, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
+            .addComponent(txtCpfCnpj, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
         );
         panelCpfCnpjLayout.setVerticalGroup(
             panelCpfCnpjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -217,8 +222,7 @@ public class JIFCrlv extends javax.swing.JInternalFrame {
             .addGroup(panelPlacaLayout.createSequentialGroup()
                 .addComponent(txtPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(txtUfPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+                .addComponent(txtUfPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         panelPlacaLayout.setVerticalGroup(
             panelPlacaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -254,7 +258,7 @@ public class JIFCrlv extends javax.swing.JInternalFrame {
         panelChassi.setLayout(panelChassiLayout);
         panelChassiLayout.setHorizontalGroup(
             panelChassiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txtChassi, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
+            .addComponent(txtChassi, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE)
         );
         panelChassiLayout.setVerticalGroup(
             panelChassiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -385,7 +389,7 @@ public class JIFCrlv extends javax.swing.JInternalFrame {
         panelCor.setLayout(panelCorLayout);
         panelCorLayout.setHorizontalGroup(
             panelCorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txtCor, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
+            .addComponent(txtCor, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
         );
         panelCorLayout.setVerticalGroup(
             panelCorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -486,7 +490,7 @@ public class JIFCrlv extends javax.swing.JInternalFrame {
         panelParcelamentoCotas.setLayout(panelParcelamentoCotasLayout);
         panelParcelamentoCotasLayout.setHorizontalGroup(
             panelParcelamentoCotasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txtParcelamentoCotas)
+            .addComponent(txtParcelamentoCotas, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
         );
         panelParcelamentoCotasLayout.setVerticalGroup(
             panelParcelamentoCotasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -596,9 +600,7 @@ public class JIFCrlv extends javax.swing.JInternalFrame {
         );
         panelObservacoesLayout.setVerticalGroup(
             panelObservacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelObservacoesLayout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+            .addComponent(jScrollPane2)
         );
 
         panelData.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
@@ -607,11 +609,11 @@ public class JIFCrlv extends javax.swing.JInternalFrame {
         panelData.setLayout(panelDataLayout);
         panelDataLayout.setHorizontalGroup(
             panelDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txtData)
+            .addComponent(txtData, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
         );
         panelDataLayout.setVerticalGroup(
             panelDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(txtData, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         panelLocal.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Local", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
@@ -620,60 +622,66 @@ public class JIFCrlv extends javax.swing.JInternalFrame {
         panelLocal.setLayout(panelLocalLayout);
         panelLocalLayout.setHorizontalGroup(
             panelLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txtLocal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
+            .addComponent(txtLocal, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         panelLocalLayout.setVerticalGroup(
             panelLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(txtLocal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
+        jToolBar1.setRollover(true);
+
+        btSalvar.setText("Salvar");
+        btSalvar.setFocusable(false);
+        btSalvar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btSalvar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(btSalvar);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(panelCapPotCil, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(0, 0, 0)
                         .addComponent(panelCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(panelCor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(panelNome, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(panelVia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(0, 0, 0)
-                                    .addComponent(panelCodRenavam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(0, 0, 0)
-                                    .addComponent(panelRntrc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(0, 0, 0)
-                                    .addComponent(panelExercicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(panelMarcaModelo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGap(0, 0, 0)
-                                    .addComponent(panelAnoFab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(0, 0, 0)
-                                    .addComponent(panelAnoMod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(panelEspecieTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(0, 0, 0)
-                                    .addComponent(panelCombustivel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(panelCpfCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(panelPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(panelPlacaAnt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, 0)
-                                .addComponent(panelChassi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(panelVia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(panelCodRenavam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(panelRntrc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(panelExercicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(panelMarcaModelo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGap(0, 0, 0)
+                            .addComponent(panelAnoFab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(0, 0, 0)
+                            .addComponent(panelAnoMod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(panelEspecieTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(0, 0, 0)
+                            .addComponent(panelCombustivel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(panelPlacaAnt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(panelChassi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(panelNome, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addComponent(panelCpfCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(0, 0, 0)
+                            .addComponent(panelPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(0, 6, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(panelPremioTarifario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)
                         .addComponent(panelIof, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -681,18 +689,22 @@ public class JIFCrlv extends javax.swing.JInternalFrame {
                         .addComponent(panelPremioTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)
                         .addComponent(panelDataPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(panelLocal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(panelData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(panelObservacoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panelIpva, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(panelObservacoes, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelIpva, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(panelLocal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(panelData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 478, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(12, Short.MAX_VALUE)
+                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -714,15 +726,14 @@ public class JIFCrlv extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(panelCombustivel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(panelEspecieTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, 0)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(panelAnoFab, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(panelAnoMod, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(panelMarcaModelo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(panelMarcaModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(panelCor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(panelCapPotCil, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(panelCapPotCil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(panelCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(panelIpva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -733,10 +744,12 @@ public class JIFCrlv extends javax.swing.JInternalFrame {
                             .addComponent(panelIof, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, 0)
                         .addComponent(panelObservacoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(panelLocal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(panelData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, 0)
+                                .addComponent(panelData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         pack();
@@ -758,10 +771,311 @@ public class JIFCrlv extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAnoFabActionPerformed
 
+    
+   
+
+    public JTextField getTxtAnoFab() {
+        return txtAnoFab;
+    }
+
+    public void setTxtAnoFab(JTextField txtAnoFab) {
+        this.txtAnoFab = txtAnoFab;
+    }
+
+    public JTextField getTxtAnoMod() {
+        return txtAnoMod;
+    }
+
+    public void setTxtAnoMod(JTextField txtAnoMod) {
+        this.txtAnoMod = txtAnoMod;
+    }
+
+    public JTextField getTxtCap() {
+        return txtCap;
+    }
+
+    public void setTxtCap(JTextField txtCap) {
+        this.txtCap = txtCap;
+    }
+
+    public JTextField getTxtCategoria() {
+        return txtCategoria;
+    }
+
+    public void setTxtCategoria(JTextField txtCategoria) {
+        this.txtCategoria = txtCategoria;
+    }
+
+    public JTextField getTxtChassi() {
+        return txtChassi;
+    }
+
+    public void setTxtChassi(JTextField txtChassi) {
+        this.txtChassi = txtChassi;
+    }
+
+    public JTextField getTxtCil() {
+        return txtCil;
+    }
+
+    public void setTxtCil(JTextField txtCil) {
+        this.txtCil = txtCil;
+    }
+
+    public JTextField getTxtCodRenavam() {
+        return txtCodRenavam;
+    }
+
+    public void setTxtCodRenavam(JTextField txtCodRenavam) {
+        this.txtCodRenavam = txtCodRenavam;
+    }
+
+    public JTextField getTxtCombustivel() {
+        return txtCombustivel;
+    }
+
+    public void setTxtCombustivel(JTextField txtCombustivel) {
+        this.txtCombustivel = txtCombustivel;
+    }
+
+    public JTextField getTxtCor() {
+        return txtCor;
+    }
+
+    public void setTxtCor(JTextField txtCor) {
+        this.txtCor = txtCor;
+    }
+
+    public JTextField getTxtCotaUnica() {
+        return txtCotaUnica;
+    }
+
+    public void setTxtCotaUnica(JTextField txtCotaUnica) {
+        this.txtCotaUnica = txtCotaUnica;
+    }
+
+    public JTextField getTxtCpfCnpj() {
+        return txtCpfCnpj;
+    }
+
+    public void setTxtCpfCnpj(JTextField txtCpfCnpj) {
+        this.txtCpfCnpj = txtCpfCnpj;
+    }
+
+    public JTextField getTxtData() {
+        return txtData;
+    }
+
+    public void setTxtData(JTextField txtData) {
+        this.txtData = txtData;
+    }
+
+    public JTextField getTxtDataPagamento() {
+        return txtDataPagamento;
+    }
+
+    public void setTxtDataPagamento(JTextField txtDataPagamento) {
+        this.txtDataPagamento = txtDataPagamento;
+    }
+
+    public JTextField getTxtEspecie() {
+        return txtEspecie;
+    }
+
+    public void setTxtEspecie(JTextField txtEspecie) {
+        this.txtEspecie = txtEspecie;
+    }
+
+    public JTextField getTxtExercicio() {
+        return txtExercicio;
+    }
+
+    public void setTxtExercicio(JTextField txtExercicio) {
+        this.txtExercicio = txtExercicio;
+    }
+
+    public JTextField getTxtFaixaIpva() {
+        return txtFaixaIpva;
+    }
+
+    public void setTxtFaixaIpva(JTextField txtFaixaIpva) {
+        this.txtFaixaIpva = txtFaixaIpva;
+    }
+
+    public JTextField getTxtIof() {
+        return txtIof;
+    }
+
+    public void setTxtIof(JTextField txtIof) {
+        this.txtIof = txtIof;
+    }
+
+    public JTextField getTxtLocal() {
+        return txtLocal;
+    }
+
+    public void setTxtLocal(JTextField txtLocal) {
+        this.txtLocal = txtLocal;
+    }
+
+    public JTextField getTxtMarca() {
+        return txtMarca;
+    }
+
+    public void setTxtMarca(JTextField txtMarca) {
+        this.txtMarca = txtMarca;
+    }
+
+    public JTextField getTxtModelo() {
+        return txtModelo;
+    }
+
+    public void setTxtModelo(JTextField txtModelo) {
+        this.txtModelo = txtModelo;
+    }
+
+    public JTextArea getTxtNome() {
+        return txtNome;
+    }
+
+    public void setTxtNome(JTextArea txtNome) {
+        this.txtNome = txtNome;
+    }
+
+    public JTextArea getTxtObservacoes() {
+        return txtObservacoes;
+    }
+
+    public void setTxtObservacoes(JTextArea txtObservacoes) {
+        this.txtObservacoes = txtObservacoes;
+    }
+
+    public JTextField getTxtParcela1() {
+        return txtParcela1;
+    }
+
+    public void setTxtParcela1(JTextField txtParcela1) {
+        this.txtParcela1 = txtParcela1;
+    }
+
+    public JTextField getTxtParcela2() {
+        return txtParcela2;
+    }
+
+    public void setTxtParcela2(JTextField txtParcela2) {
+        this.txtParcela2 = txtParcela2;
+    }
+
+    public JTextField getTxtParcela3() {
+        return txtParcela3;
+    }
+
+    public void setTxtParcela3(JTextField txtParcela3) {
+        this.txtParcela3 = txtParcela3;
+    }
+
+    public JTextField getTxtParcelamentoCotas() {
+        return txtParcelamentoCotas;
+    }
+
+    public void setTxtParcelamentoCotas(JTextField txtParcelamentoCotas) {
+        this.txtParcelamentoCotas = txtParcelamentoCotas;
+    }
+
+    public JTextField getTxtPlaca() {
+        return txtPlaca;
+    }
+
+    public void setTxtPlaca(JTextField txtPlaca) {
+        this.txtPlaca = txtPlaca;
+    }
+
+    public JTextField getTxtPlacaAnt() {
+        return txtPlacaAnt;
+    }
+
+    public void setTxtPlacaAnt(JTextField txtPlacaAnt) {
+        this.txtPlacaAnt = txtPlacaAnt;
+    }
+
+    public JTextField getTxtPot() {
+        return txtPot;
+    }
+
+    public void setTxtPot(JTextField txtPot) {
+        this.txtPot = txtPot;
+    }
+
+    public JTextField getTxtPremioTarifario() {
+        return txtPremioTarifario;
+    }
+
+    public void setTxtPremioTarifario(JTextField txtPremioTarifario) {
+        this.txtPremioTarifario = txtPremioTarifario;
+    }
+
+    public JTextField getTxtPremioTotal() {
+        return txtPremioTotal;
+    }
+
+    public void setTxtPremioTotal(JTextField txtPremioTotal) {
+        this.txtPremioTotal = txtPremioTotal;
+    }
+
+    public JTextField getTxtRntrc() {
+        return txtRntrc;
+    }
+
+    public void setTxtRntrc(JTextField txtRntrc) {
+        this.txtRntrc = txtRntrc;
+    }
+
+    public JTextField getTxtUfPlaca() {
+        return txtUfPlaca;
+    }
+
+    public void setTxtUfPlaca(JTextField txtUfPlaca) {
+        this.txtUfPlaca = txtUfPlaca;
+    }
+
+    public JTextField getTxtUfPlacaAnt() {
+        return txtUfPlacaAnt;
+    }
+
+    public void setTxtUfPlacaAnt(JTextField txtUfPlacaAnt) {
+        this.txtUfPlacaAnt = txtUfPlacaAnt;
+    }
+
+    public JTextField getTxtVencCotaUnica() {
+        return txtVencCotaUnica;
+    }
+
+    public void setTxtVencCotaUnica(JTextField txtVencCotaUnica) {
+        this.txtVencCotaUnica = txtVencCotaUnica;
+    }
+
+    public JTextField getTxtVia() {
+        return txtVia;
+    }
+
+    public void setTxtVia(JTextField txtVia) {
+        this.txtVia = txtVia;
+    }
+
+    public JButton getBtSalvar() {
+        return btSalvar;
+    }
+
+    
+    
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btSalvar;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JToolBar jToolBar1;
     private javax.swing.JLabel lblParcela1;
     private javax.swing.JLabel lblParcela2;
     private javax.swing.JLabel lblParcela3;

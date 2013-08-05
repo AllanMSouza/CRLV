@@ -82,6 +82,7 @@ public class ControllerSmartCard implements ActionListener {
                     
                 case "Formulário CRLV":
                     JIFCrlv crlv = new JIFCrlv();
+                    ControllerCrlv conCrlv = new ControllerCrlv(crlv);
                     mw.getDesktop().add(crlv);
                     crlv.setVisible(true);
                     break;
