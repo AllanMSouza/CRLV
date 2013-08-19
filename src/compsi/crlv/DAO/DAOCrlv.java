@@ -16,10 +16,11 @@ import java.sql.SQLException;
  */
 public class DAOCrlv extends Database {
     
+    private Connection con = null;
+    
     public void insert(CRLV crlv) throws ClassNotFoundException, SQLException{
-        
-        Connection con = null;
-        abrirBanco(con);
+                
+        con = abrirBanco(con);
         
         String sql = "insert into crlv"
                 + "(via, cod_renavam, rntrc, exercicio, nome, cpf_cnpj, placa,"
@@ -61,9 +62,11 @@ public class DAOCrlv extends Database {
         stm.setString(29, crlv.getData());
         
         boolean result = stm.execute();
+        int idCrlv = 0;
         
-        ResultSet rs = select(crlv);
-        int idCrlv = rs.getInt("id_crlv");
+       ResultSet rs = select(crlv);
+       if(rs.next())
+          idCrlv = rs.getInt("id_crlv");
         
         sql = "insert into ipva "
                 + "(cota_unica, venc_cota_unica, faixa_ipva, parcelamento_cotas,"
@@ -80,13 +83,15 @@ public class DAOCrlv extends Database {
         stm.setString(6, crlv.getIpva().getVencSegundaCota());
         stm.setString(7, crlv.getIpva().getVencTerceiraCota());
         stm.setInt(8, idCrlv);
-        
+        System.out.println(idCrlv);
         result = stm.execute();
         fecharBanco(con);
     }
     
     private ResultSet select(CRLV crlv) throws SQLException{
-        Connection con = null;
+       
+//        testarConexao(con);
+        
         ResultSet rs = null;
         
         String sql = "select * from crlv "

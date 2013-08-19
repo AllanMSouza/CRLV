@@ -5,6 +5,7 @@
 package compsi.crlv.view;
 
 import compsi.crlv.model.CRLV;
+import compsi.crlv.model.IPVA;
 import javax.swing.JButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -1067,6 +1068,8 @@ public class JIFCrlv extends javax.swing.JInternalFrame {
     }
     
     public CRLV getModelCrlv(CRLV crlv){
+        IPVA ipva = new IPVA();
+        
         crlv.setVia(Integer.parseInt(txtVia.getText()));
         crlv.setCodRenavam(txtCodRenavam.getText());
         crlv.setRntrc(txtRntrc.getText());
@@ -1089,18 +1092,23 @@ public class JIFCrlv extends javax.swing.JInternalFrame {
         crlv.setCil(txtCil.getText());
         crlv.setCategoria(txtCategoria.getText());
         crlv.setCor(txtCor.getText());
-        crlv.getIpva().setCotaUnica(txtCotaUnica.getText());
-        crlv.getIpva().setFaixaIpva(txtFaixaIpva.getText());
-        crlv.getIpva().setVencCotaUnica(txtVencCotaUnica.getText());
-        crlv.getIpva().setParcelamentoCotas(txtParcelamentoCotas.getText());
-        //crlv.getIpva().setVencCotas();
+        ipva.setCotaUnica(txtCotaUnica.getText());
+        ipva.setFaixaIpva(txtFaixaIpva.getText().toString());
+        ipva.setVencCotaUnica(txtVencCotaUnica.getText().toString());
+        ipva.setParcelamentoCotas(txtParcelamentoCotas.getText().toString());
+        ipva.setVencPrimeiraCota(txtParcela1.getText().toString());
+        ipva.setVencSegundaCota(txtParcela2.getText().toString());
+        ipva.setVencTerceiraCota(txtParcela3.getText().toString());
+        crlv.setIpva(ipva);
         crlv.setPremioTarifario(txtPremioTarifario.getText());
         crlv.setIof(txtIof.getText());
         crlv.setPremioTotal(txtPremioTotal.getText());
         crlv.setDataPag(txtDataPagamento.getText());
         crlv.setObservacoes(txtObservacoes.getText());
         crlv.setLocal(txtLocal.getText());
-        crlv.setData(txtData.getText());                
+        crlv.setData(txtData.getText());
+        
+        System.out.println(txtCotaUnica.getText().toString());
                 
         return crlv;
     }
@@ -1132,6 +1140,9 @@ public class JIFCrlv extends javax.swing.JInternalFrame {
         txtParcelamentoCotas.setText(crlv.getIpva().getParcelamentoCotas());
         txtFaixaIpva.setText(crlv.getIpva().getFaixaIpva());
         txtVencCotaUnica.setText(crlv.getIpva().getVencCotaUnica());
+        txtParcela1.setText(crlv.getIpva().getVencPrimeiraCota());
+        txtParcela2.setText(crlv.getIpva().getVencSegundaCota());
+        txtParcela3.setText(crlv.getIpva().getVencTerceiraCota());
         txtPremioTarifario.setText(crlv.getPremioTarifario());
         txtIof.setText(crlv.getIof());
         txtPremioTotal.setText(crlv.getPremioTotal());

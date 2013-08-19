@@ -1,10 +1,10 @@
 ----------------------------------------------------------------
-Tue Aug 13 21:42:16 BRT 2013:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.9.1.0 - (1344872): instance a816c00e-0140-7a45-e618-000004af6c50 
-on database directory /home/allan/NetBeansProjects/CRLV/db/crlv  with class loader sun.misc.Launcher$AppClassLoader@29af45f4 
+Mon Aug 19 15:13:50 BRT 2013:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.9.1.0 - (1344872): instance a816c00e-0140-97c8-6fe7-0000041ac5c8 
+on database directory /home/allan/NetBeansProjects/CRLV/db/crlv  with class loader sun.misc.Launcher$AppClassLoader@47415dbf 
 Loaded from file:/home/allan/NetBeansProjects/CRLV/lib/derby.jar
 java.vendor=Oracle Corporation
-java.runtime.version=1.7.0_21-b02
+java.runtime.version=1.7.0_25-b30
 user.dir=/home/allan/NetBeansProjects/CRLV
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''

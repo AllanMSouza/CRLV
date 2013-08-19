@@ -37,7 +37,7 @@ public class Database {
     
     //private Connection con;
     
-    public void abrirBanco(Connection con) throws ClassNotFoundException, SQLException{
+    public Connection abrirBanco(Connection con) throws ClassNotFoundException, SQLException{
         //System.out.println("jdbc:derby:"+dbPath);
         try {
             Properties props = new Properties();
@@ -52,7 +52,9 @@ public class Database {
             
         } catch (SQLException ex) {
             Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
-        }  
+        } 
+        
+        return con;
     }
     
     public void fecharBanco(Connection con) throws SQLException {

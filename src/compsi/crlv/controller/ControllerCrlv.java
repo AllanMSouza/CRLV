@@ -33,7 +33,7 @@ public class ControllerCrlv implements ActionListener {
     public void actionPerformed(ActionEvent ae) {
         try {
             CRLV c = new CRLV();
-            jifCrlv.getModelCrlv(c);
+            c = jifCrlv.getModelCrlv(c);
             daoCrlv.insert(c);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ControllerCrlv.class.getName()).log(Level.SEVERE, null, ex);
