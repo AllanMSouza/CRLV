@@ -90,14 +90,44 @@ public class IPVA {
         propertyChangeSupport.firePropertyChange(PROP_PARCELAMENTOCOTAS, oldParcelamentoCotas, parcelamentoCotas);
     }
 
-    private String[] vencCotas = new String[3];
+        private String vencPrimeiraCota;
+    public static final String PROP_VENCPRIMEIRACOTA = "vencPrimeiraCota";
 
-    public String[] getVencCotas() {
-        return vencCotas;
+    public String getVencPrimeiraCota() {
+        return vencPrimeiraCota;
     }
 
-    public void setVencCotas(String[] vencCotas) {
-        this.vencCotas = vencCotas;
+    public void setVencPrimeiraCota(String vencPrimeiraCota) {
+        String oldVencPrimeiraCota = this.vencPrimeiraCota;
+        this.vencPrimeiraCota = vencPrimeiraCota;
+        propertyChangeSupport.firePropertyChange(PROP_VENCPRIMEIRACOTA, oldVencPrimeiraCota, vencPrimeiraCota);
     }
+
+        private String vencSegundaCota;
+    public static final String PROP_VENCSEGUNDACOTA = "vencSegundaCota";
+
+    public String getVencSegundaCota() {
+        return vencSegundaCota;
+    }
+
+    public void setVencSegundaCota(String vencSegundaCota) {
+        String oldVencSegundaCota = this.vencSegundaCota;
+        this.vencSegundaCota = vencSegundaCota;
+        propertyChangeSupport.firePropertyChange(PROP_VENCSEGUNDACOTA, oldVencSegundaCota, vencSegundaCota);
+    }
+
+        private String vencTerceiraCota;
+    public static final String PROP_VENCTERCEIRACOTA = "vencTerceiraCota";
+
+    public String getVencTerceiraCota() {
+        return vencTerceiraCota;
+    }
+
+    public void setVencTerceiraCota(String vencTerceiraCota) {
+        String oldVencTerceiraCota = this.vencTerceiraCota;
+        this.vencTerceiraCota = vencTerceiraCota;
+        propertyChangeSupport.firePropertyChange(PROP_VENCTERCEIRACOTA, oldVencTerceiraCota, vencTerceiraCota);
+    }
+
     
 }

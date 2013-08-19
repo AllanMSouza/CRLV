@@ -4,7 +4,6 @@
  */
 package compsi.crlv.DAO;
 
-import org.apache.derby.jdbc.EmbeddedDriver;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -36,9 +35,9 @@ public class Database {
     private String senha = "toor";
     private String dbPath = "/home/allan/NetBeansProjects/CRLV/db/crlv";
     
-    private Connection con;
+    //private Connection con;
     
-    public void abrirBanco() throws ClassNotFoundException, SQLException{
+    public void abrirBanco(Connection con) throws ClassNotFoundException, SQLException{
         //System.out.println("jdbc:derby:"+dbPath);
         try {
             Properties props = new Properties();
@@ -53,12 +52,10 @@ public class Database {
             
         } catch (SQLException ex) {
             Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-  
+        }  
     }
     
-    public void fecharBanco() throws SQLException {
+    public void fecharBanco(Connection con) throws SQLException {
         try {
             con.close();
         } catch (SQLException ex) {
@@ -66,7 +63,7 @@ public class Database {
         }
     }
     
-    public synchronized boolean testarConexao() throws SQLException{
+    public synchronized boolean testarConexao(Connection con) throws SQLException{
         boolean status = false;
         boolean conectado = false;
         
@@ -79,7 +76,7 @@ public class Database {
         }
         if(!conectado){
             try {
-                abrirBanco();
+                abrirBanco(con);
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -88,9 +85,9 @@ public class Database {
         return status;
     }
     
-    public Connection getConnection(){
-        return con;
-    }
+//    public Connection getConnection(){
+//        return con;
+//    }
     
    
             

@@ -4,8 +4,8 @@
  */
 package compsi.crlv.view;
 
+import compsi.crlv.model.CRLV;
 import javax.swing.JButton;
-import javax.swing.JMenu;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
@@ -1065,10 +1065,81 @@ public class JIFCrlv extends javax.swing.JInternalFrame {
     public JButton getBtSalvar() {
         return btSalvar;
     }
-
     
+    public CRLV getModelCrlv(CRLV crlv){
+        crlv.setVia(Integer.parseInt(txtVia.getText()));
+        crlv.setCodRenavam(txtCodRenavam.getText());
+        crlv.setRntrc(txtRntrc.getText());
+        crlv.setExercicio(txtExercicio.getText());
+        crlv.setNome(txtNome.getText());
+        crlv.setCpfCnpj(txtCpfCnpj.getText());
+        crlv.setPlaca(txtPlaca.getText());
+        crlv.setUfPlaca(txtUfPlaca.getText());
+        crlv.setPlacaAnt(txtPlacaAnt.getText());
+        crlv.setUfPlacaAnt(txtUfPlacaAnt.getText());
+        crlv.setChassi(txtChassi.getText());
+        crlv.setEspecieTipo(txtEspecie.getText());
+        crlv.setCombustivel(txtCombustivel.getText());
+        crlv.setMarca(txtMarca.getText());
+        crlv.setModelo(txtModelo.getText());
+        crlv.setAnoFab(Integer.parseInt(txtAnoFab.getText()));
+        crlv.setAnoMod(Integer.parseInt(txtAnoMod.getText()));
+        crlv.setCap(txtCap.getText());
+        crlv.setPot(txtPot.getText());
+        crlv.setCil(txtCil.getText());
+        crlv.setCategoria(txtCategoria.getText());
+        crlv.setCor(txtCor.getText());
+        crlv.getIpva().setCotaUnica(txtCotaUnica.getText());
+        crlv.getIpva().setFaixaIpva(txtFaixaIpva.getText());
+        crlv.getIpva().setVencCotaUnica(txtVencCotaUnica.getText());
+        crlv.getIpva().setParcelamentoCotas(txtParcelamentoCotas.getText());
+        //crlv.getIpva().setVencCotas();
+        crlv.setPremioTarifario(txtPremioTarifario.getText());
+        crlv.setIof(txtIof.getText());
+        crlv.setPremioTotal(txtPremioTotal.getText());
+        crlv.setDataPag(txtDataPagamento.getText());
+        crlv.setObservacoes(txtObservacoes.getText());
+        crlv.setLocal(txtLocal.getText());
+        crlv.setData(txtData.getText());                
+                
+        return crlv;
+    }
     
-    
+    public void setModelCrlv(CRLV crlv){
+        txtVia.setText(crlv.getVia().toString());
+        txtCodRenavam.setText(crlv.getCodRenavam());
+        txtRntrc.setText(crlv.getRntrc());
+        txtExercicio.setText(crlv.getExercicio());
+        txtNome.setText(crlv.getNome());
+        txtCpfCnpj.setText(crlv.getCpfCnpj());
+        txtPlaca.setText(crlv.getPlaca());
+        txtUfPlaca.setText(crlv.getUfPlaca());
+        txtPlacaAnt.setText(crlv.getPlacaAnt());
+        txtUfPlacaAnt.setText(crlv.getUfPlacaAnt());
+        txtChassi.setText(crlv.getChassi());
+        txtEspecie.setText(crlv.getEspecieTipo());
+        txtCombustivel.setText(crlv.getCombustivel());
+        txtMarca.setText(crlv.getMarca());
+        txtModelo.setText(crlv.getModelo());
+        txtAnoFab.setText(crlv.getAnoFab().toString());
+        txtAnoMod.setText(crlv.getAnoMod().toString());
+        txtCap.setText(crlv.getCap());
+        txtPot.setText(crlv.getPot());
+        txtCil.setText(crlv.getCil());
+        txtCategoria.setText(crlv.getCategoria());
+        txtCor.setText(crlv.getCor());
+        txtCotaUnica.setText(crlv.getIpva().getCotaUnica());
+        txtParcelamentoCotas.setText(crlv.getIpva().getParcelamentoCotas());
+        txtFaixaIpva.setText(crlv.getIpva().getFaixaIpva());
+        txtVencCotaUnica.setText(crlv.getIpva().getVencCotaUnica());
+        txtPremioTarifario.setText(crlv.getPremioTarifario());
+        txtIof.setText(crlv.getIof());
+        txtPremioTotal.setText(crlv.getPremioTotal());
+        txtDataPagamento.setText(crlv.getDataPag());
+        txtObservacoes.setText(crlv.getObservacoes());
+        txtLocal.setText(crlv.getLocal());
+        txtData.setText(crlv.getData());
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btSalvar;

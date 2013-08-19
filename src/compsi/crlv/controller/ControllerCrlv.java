@@ -5,6 +5,7 @@
 package compsi.crlv.controller;
 
 import compsi.crlv.DAO.DAOCrlv;
+import compsi.crlv.model.CRLV;
 import compsi.crlv.view.JIFCrlv;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -31,7 +32,9 @@ public class ControllerCrlv implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent ae) {
         try {
-            daoCrlv.insert();
+            CRLV c = new CRLV();
+            jifCrlv.getModelCrlv(c);
+            daoCrlv.insert(c);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ControllerCrlv.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
