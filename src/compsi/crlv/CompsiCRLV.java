@@ -5,8 +5,9 @@
 package compsi.crlv;
 import compsi.crlv.controller.ControllerLeitora;
 import compsi.crlv.controller.ControllerSmartCard;
+import compsi.crlv.controller.ControllerTableCrlv;
 import compsi.crlv.view.JIFLeitora;
-import compsi.crlv.view.MainWondow;
+import compsi.crlv.view.MainWindow;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.security.NoSuchAlgorithmException;
@@ -27,12 +28,13 @@ public class CompsiCRLV {
         UIManager.LookAndFeelInfo[] looks = UIManager.getInstalledLookAndFeels();
         UIManager.setLookAndFeel(looks[1].getClassName());
         
-        MainWondow m = new MainWondow();
+        MainWindow m = new MainWindow();
         Dimension tela = Toolkit.getDefaultToolkit().getScreenSize();   
         JIFLeitora con = new JIFLeitora();
                 
         ControllerLeitora conl = new ControllerLeitora(con);       
         ControllerSmartCard csc = new ControllerSmartCard(m,con);
+        ControllerTableCrlv conTable = new ControllerTableCrlv(m);
         
         m.getLblLsitec().setBounds(0, tela.height/2, tela.width, 200);
         m.getDesktop().add(con);

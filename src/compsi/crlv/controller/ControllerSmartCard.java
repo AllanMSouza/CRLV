@@ -7,7 +7,7 @@ package compsi.crlv.controller;
 import compsi.crlv.model.SmartCard;
 import compsi.crlv.view.JIFCrlv;
 import compsi.crlv.view.JIFLeitora;
-import compsi.crlv.view.MainWondow;
+import compsi.crlv.view.MainWindow;
 import java.awt.Cursor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -49,11 +49,11 @@ import pkcs11_lea.util.Hex;
 public class ControllerSmartCard implements ActionListener {
 
     private SmartCard sc;
-    private MainWondow mw;
+    private MainWindow mw;
     private String result;
     private JIFLeitora jifLeitora;
 
-    public ControllerSmartCard(MainWondow m, JIFLeitora lei) throws NoSuchAlgorithmException {
+    public ControllerSmartCard(MainWindow m, JIFLeitora lei) throws NoSuchAlgorithmException {
         sc = new SmartCard();    
         mw = m;
         jifLeitora = lei;

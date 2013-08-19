@@ -5,10 +5,12 @@
 package compsi.crlv.DAO;
 
 import compsi.crlv.model.CRLV;
+import compsi.crlv.model.IPVA;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.LinkedList;
 
 /**
  *
@@ -101,6 +103,67 @@ public class DAOCrlv extends Database {
         rs = stm.executeQuery();
         
         return rs;
+    }
+    
+    private LinkedList<CRLV> fetchAll() throws SQLException, ClassNotFoundException{
+        LinkedList<CRLV> crlvs = new LinkedList<CRLV>();
+        con = abrirBanco(con);
+        
+        String sql = "select * from crlv left join ipva "
+                + "on (id_crlv = crlv_id_crlv)";
+        PreparedStatement stm = con.prepareStatement(sql);
+        ResultSet rs = stm.executeQuery();
+        
+        while(rs.next() == true){
+            CRLV crlv = new CRLV();
+            IPVA ipva = new IPVA();
+            
+            crlv.setVia(rs.getInt("via"));
+            crlv.setCodRenavam(rs.getString("cod_renavam"));
+            crlv.setRntrc(rs.getString("rntrc"));
+            crlv.setExercicio(rs.getString("exercicio"));
+            crlv.setNome(rs.getString("Nome"));
+            crlv.setCpfCnpj(rs.getString("cpf_cnpj"));
+            crlv.setPlaca(rs.getString("placa"));
+            crlv.setUfPlaca(rs.getString("uf_placa"));
+            crlv.setPlacaAnt(rs.getString("placa_ant"));
+            crlv.setUfPlacaAnt(rs.getString("uf_placa_ant"));
+            crlv.setChassi(rs.getString("chassi"));
+            crlv.setEspecieTipo(rs.getString("especie_tipo"));
+            crlv.setCombustivel(rs.getString("combustivel"));
+            crlv.setMarca(rs.getString("marca"));
+            crlv.setModelo(rs.getString("modelo"));
+            crlv.setAnoFab(rs.getInt("ano_fab"));
+            crlv.setAnoMod(rs.getInt("ano_mod"));
+            crlv.setCap(rs.getString("cap"));
+            crlv.setPot(rs.getString("pot"));
+            crlv.setCil(rs.getString("cil"));
+            crlv.setCategoria(rs.getString("categoria"));
+            crlv.setCor(rs.getString("cor"));
+            ipva.setCotaUnica(rs.getString("cota_unica"));
+            ipva.setFaixaIpva(rs.getString("faixa_ipva"));
+            ipva.setVencCotaUnica(rs.getString("venc_cota_unica"));
+            ipva.setParcelamentoCotas(rs.getString("parcelamento_cotas"));
+            ipva.setVencPrimeiraCota(rs.getString("venc_primeira_cota"));
+            ipva.setVencSegundaCota(rs.getString("venc_segunda_cota"));
+            ipva.setVencTerceiraCota(rs.getString("venc_terceira_cota"));
+            crlv.setIpva(ipva);
+            crlv.setPremioTarifario(rs.getString("premio_tarifario"));
+            crlv.setIof(rs.getString("iof"));
+            crlv.setPremioTotal(rs.getString("premio_total"));
+            crlv.setDataPag(rs.getString("data_pagamento"));
+            crlv.setObservacoes(rs.getString("observacoes"));
+            crlv.setLocal(rs.getString("local"));
+            crlv.setData(rs.getString("data"));
+            
+            crlvs.add(crlv);
+        }
+        fecharBanco(con);
+        return crlvs;
+    }
+    
+    public LinkedList<CRLV> getListCrlvs() throws SQLException, ClassNotFoundException{
+        return fetchAll();
     }
     
 
