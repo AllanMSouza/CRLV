@@ -6,6 +6,9 @@ package compsi.crlv.view;
 
 import compsi.crlv.model.CRLV;
 import java.util.LinkedList;
+import java.util.List;
+import javax.swing.JTable;
+
 
 /**
  *
@@ -16,16 +19,17 @@ public class JIFGerenciarCrlvs extends javax.swing.JInternalFrame {
     /**
      * Creates new form JIFGerenciarCrlvs
      */
+    protected List<CRLV> crlv;
+
+    public List<CRLV> getCrlv() {
+        return crlv;
+    }
+    
+    
+    
     public JIFGerenciarCrlvs(LinkedList<CRLV> crlvs) {
+        crlv = org.jdesktop.observablecollections.ObservableCollections.observableList(crlvs);
         initComponents();
-//        tableGerenciarCrlvs.setModel(null);
-        for(int i = 0; i < crlvs.size(); i++ ){
-            tableGerenciarCrlvs.setValueAt(crlvs.get(i).getVia(), i, 0);
-            tableGerenciarCrlvs.setValueAt(crlvs.get(i).getCodRenavam(), i, 1);
-            tableGerenciarCrlvs.setValueAt(crlvs.get(i).getNome(), i, 2);
-            tableGerenciarCrlvs.setValueAt(crlvs.get(i).getCpfCnpj(), i, 3);
-            
-        }
     }
     
     /**
@@ -36,56 +40,15 @@ public class JIFGerenciarCrlvs extends javax.swing.JInternalFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tableGerenciarCrlvs = new javax.swing.JTable();
         btAdicionarCrlv = new javax.swing.JButton();
         btEditarCrlv = new javax.swing.JButton();
         btExcluirCrlv = new javax.swing.JButton();
         btVizualizarCrlv = new javax.swing.JButton();
         btGerarXml = new javax.swing.JButton();
-
-        tableGerenciarCrlvs.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Via", "Código RENAVAM", "Nome", "CPF/CNPJ"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        tableGerenciarCrlvs.setColumnSelectionAllowed(true);
-        jScrollPane1.setViewportView(tableGerenciarCrlvs);
-        tableGerenciarCrlvs.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        tableGerenciarCrlvs.getColumnModel().getColumn(0).setMinWidth(1);
-        tableGerenciarCrlvs.getColumnModel().getColumn(0).setPreferredWidth(1);
-        tableGerenciarCrlvs.getColumnModel().getColumn(3).setPreferredWidth(10);
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         btAdicionarCrlv.setText("Adicionar CRLV");
         btAdicionarCrlv.addActionListener(new java.awt.event.ActionListener() {
@@ -107,25 +70,50 @@ public class JIFGerenciarCrlvs extends javax.swing.JInternalFrame {
 
         btGerarXml.setText("Gerar XML");
 
+        org.jdesktop.beansbinding.ELProperty eLProperty = org.jdesktop.beansbinding.ELProperty.create("${crlv}");
+        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, eLProperty, jTable1);
+        org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${via}"));
+        columnBinding.setColumnName("Via");
+        columnBinding.setColumnClass(Integer.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${chassi}"));
+        columnBinding.setColumnName("Chassi");
+        columnBinding.setColumnClass(String.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${codRenavam}"));
+        columnBinding.setColumnName("Cod Renavam");
+        columnBinding.setColumnClass(String.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${cpfCnpj}"));
+        columnBinding.setColumnName("Cpf Cnpj");
+        columnBinding.setColumnClass(String.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${nome}"));
+        columnBinding.setColumnName("Nome");
+        columnBinding.setColumnClass(String.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${rntrc}"));
+        columnBinding.setColumnName("Rntrc");
+        columnBinding.setColumnClass(String.class);
+        bindingGroup.addBinding(jTableBinding);
+        jTableBinding.bind();
+        jScrollPane2.setViewportView(jTable1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jScrollPane1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btAdicionarCrlv, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btEditarCrlv, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btExcluirCrlv, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btVizualizarCrlv, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btGerarXml, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(10, 10, 10))
+                .addComponent(btAdicionarCrlv, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btEditarCrlv, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btExcluirCrlv, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btVizualizarCrlv, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btGerarXml, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 12, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,10 +125,12 @@ public class JIFGerenciarCrlvs extends javax.swing.JInternalFrame {
                     .addComponent(btExcluirCrlv)
                     .addComponent(btVizualizarCrlv)
                     .addComponent(btGerarXml))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
+
+        bindingGroup.bind();
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -159,9 +149,18 @@ public class JIFGerenciarCrlvs extends javax.swing.JInternalFrame {
     private javax.swing.JButton btExcluirCrlv;
     private javax.swing.JButton btGerarXml;
     private javax.swing.JButton btVizualizarCrlv;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tableGerenciarCrlvs;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
+    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
+
+//    public JTable getTableGerenciarCrlvs() {
+//        return tableGerenciarCrlvs;
+//    }
+//
+//    public void setTableGerenciarCrlvs(JTable tableGerenciarCrlvs) {
+//        this.tableGerenciarCrlvs = tableGerenciarCrlvs;
+//    }
 
     
 

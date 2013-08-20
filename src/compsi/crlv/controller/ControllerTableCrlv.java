@@ -20,15 +20,24 @@ import java.util.logging.Logger;
 public class ControllerTableCrlv implements ActionListener{
 
     MainWindow mw;
+    JIFGerenciarCrlvs gCrlv;
     
     public ControllerTableCrlv(MainWindow m) {
         mw = m;
+        
         
         mw.getMiListarDocumentos().addActionListener(this);
     }    
     
     @Override
     public void actionPerformed(ActionEvent ae) {
+        String op = ae.getActionCommand();
+        switch(op){
+            case "Editar CRLV":
+//                editarCrlv();
+                break;
+        }       
+        
         try {
             DAOCrlv db = new DAOCrlv();
             JIFGerenciarCrlvs gCrlvs = new JIFGerenciarCrlvs(db.getListCrlvs());
@@ -41,6 +50,9 @@ public class ControllerTableCrlv implements ActionListener{
         }
     }
     
-    
+//    public void editarCrlv(){
+//        System.out.println(gCrlv.getTableGerenciarCrlvs().getSelectionModel().getLeadSelectionIndex());
+//        
+//    }
     
 }
