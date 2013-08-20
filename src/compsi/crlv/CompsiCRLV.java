@@ -4,6 +4,7 @@
  */
 package compsi.crlv;
 import compsi.crlv.controller.ControllerLeitora;
+import compsi.crlv.controller.ControllerMainWIndow;
 import compsi.crlv.controller.ControllerSmartCard;
 import compsi.crlv.controller.ControllerTableCrlv;
 import compsi.crlv.view.JIFLeitora;
@@ -34,7 +35,7 @@ public class CompsiCRLV {
                 
         ControllerLeitora conl = new ControllerLeitora(con);       
         ControllerSmartCard csc = new ControllerSmartCard(m,con);
-        ControllerTableCrlv conTable = new ControllerTableCrlv(m);
+        ControllerMainWIndow comMain = new ControllerMainWIndow(m);
         
         m.getLblLsitec().setBounds(0, tela.height/2, tela.width, 200);
         m.getDesktop().add(con);

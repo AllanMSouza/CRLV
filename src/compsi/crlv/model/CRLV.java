@@ -13,6 +13,20 @@ import java.beans.PropertyChangeSupport;
  */
 public class CRLV {
     
+        private Integer idCrlv;
+    public static final String PROP_IDCRLV = "idCrlv";
+
+    public Integer getIdCrlv() {
+        return idCrlv;
+    }
+
+    public void setIdCrlv(Integer idCrlv) {
+        Integer oldIdCrlv = this.idCrlv;
+        this.idCrlv = idCrlv;
+        propertyChangeSupport.firePropertyChange(PROP_IDCRLV, oldIdCrlv, idCrlv);
+    }
+
+    
     private Integer via;
     public static final String PROP_VIA = "via";
 

@@ -4,6 +4,7 @@
  */
 package compsi.crlv.controller;
 
+import compsi.crlv.model.CRLV;
 import compsi.crlv.model.SmartCard;
 import compsi.crlv.view.JIFCrlv;
 import compsi.crlv.view.JIFLeitora;
@@ -82,7 +83,7 @@ public class ControllerSmartCard implements ActionListener {
                     
                 case "Formulário CRLV":
                     JIFCrlv crlv = new JIFCrlv();
-                    ControllerCrlv conCrlv = new ControllerCrlv(crlv);
+                    ControllerCrlv conCrlv = new ControllerCrlv(crlv, new CRLV());
                     mw.getDesktop().add(crlv);
                     crlv.setVisible(true);
                     break;

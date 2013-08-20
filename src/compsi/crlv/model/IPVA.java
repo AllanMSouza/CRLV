@@ -15,6 +15,19 @@ import java.beans.PropertyChangeSupport;
  */
 public class IPVA {
    
+        private Integer idIpva;
+    public static final String PROP_IDIPVA = "idIpva";
+
+    public Integer getIdIpva() {
+        return idIpva;
+    }
+
+    public void setIdIpva(Integer idIpva) {
+        Integer oldIdIpva = this.idIpva;
+        this.idIpva = idIpva;
+        propertyChangeSupport.firePropertyChange(PROP_IDIPVA, oldIdIpva, idIpva);
+    }
+
         private Boolean isCotaUnica;
     public static final String PROP_ISCOTAUNICA = "isCotaUnica";
 

@@ -1067,8 +1067,8 @@ public class JIFCrlv extends javax.swing.JInternalFrame {
         return btSalvar;
     }
     
-    public CRLV getModelCrlv(CRLV crlv){
-        IPVA ipva = new IPVA();
+    public CRLV getModelCrlv(CRLV crlv, IPVA ipva){
+        //IPVA ipva = new IPVA();
         
         crlv.setVia(Integer.parseInt(txtVia.getText()));
         crlv.setCodRenavam(txtCodRenavam.getText());

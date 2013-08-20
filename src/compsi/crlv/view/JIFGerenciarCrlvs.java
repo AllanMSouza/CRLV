@@ -7,6 +7,7 @@ package compsi.crlv.view;
 import compsi.crlv.model.CRLV;
 import java.util.LinkedList;
 import java.util.List;
+import javax.swing.JButton;
 import javax.swing.JTable;
 
 
@@ -23,6 +24,54 @@ public class JIFGerenciarCrlvs extends javax.swing.JInternalFrame {
 
     public List<CRLV> getCrlv() {
         return crlv;
+    }
+
+    public JTable getTableGerenciarCrlvs() {
+        return tableGerenciarCrlvs;
+    }
+
+    public void setTableGerenciarCrlvs(JTable tableGerenciarCrlvs) {
+        this.tableGerenciarCrlvs = tableGerenciarCrlvs;
+    }
+
+    public JButton getBtAdicionarCrlv() {
+        return btAdicionarCrlv;
+    }
+
+    public void setBtAdicionarCrlv(JButton btAdicionarCrlv) {
+        this.btAdicionarCrlv = btAdicionarCrlv;
+    }
+
+    public JButton getBtEditarCrlv() {
+        return btEditarCrlv;
+    }
+
+    public void setBtEditarCrlv(JButton btEditarCrlv) {
+        this.btEditarCrlv = btEditarCrlv;
+    }
+
+    public JButton getBtExcluirCrlv() {
+        return btExcluirCrlv;
+    }
+
+    public void setBtExcluirCrlv(JButton btExcluirCrlv) {
+        this.btExcluirCrlv = btExcluirCrlv;
+    }
+
+    public JButton getBtGerarXml() {
+        return btGerarXml;
+    }
+
+    public void setBtGerarXml(JButton btGerarXml) {
+        this.btGerarXml = btGerarXml;
+    }
+
+    public JButton getBtVizualizarCrlv() {
+        return btVizualizarCrlv;
+    }
+
+    public void setBtVizualizarCrlv(JButton btVizualizarCrlv) {
+        this.btVizualizarCrlv = btVizualizarCrlv;
     }
     
     
@@ -48,7 +97,12 @@ public class JIFGerenciarCrlvs extends javax.swing.JInternalFrame {
         btVizualizarCrlv = new javax.swing.JButton();
         btGerarXml = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tableGerenciarCrlvs = new javax.swing.JTable();
+
+        setClosable(true);
+        setIconifiable(true);
+        setTitle("Gerenciar Lista de Documentos");
+        setToolTipText("");
 
         btAdicionarCrlv.setText("Adicionar CRLV");
         btAdicionarCrlv.addActionListener(new java.awt.event.ActionListener() {
@@ -71,7 +125,7 @@ public class JIFGerenciarCrlvs extends javax.swing.JInternalFrame {
         btGerarXml.setText("Gerar XML");
 
         org.jdesktop.beansbinding.ELProperty eLProperty = org.jdesktop.beansbinding.ELProperty.create("${crlv}");
-        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, eLProperty, jTable1);
+        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, eLProperty, tableGerenciarCrlvs);
         org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${via}"));
         columnBinding.setColumnName("Via");
         columnBinding.setColumnClass(Integer.class);
@@ -92,7 +146,7 @@ public class JIFGerenciarCrlvs extends javax.swing.JInternalFrame {
         columnBinding.setColumnClass(String.class);
         bindingGroup.addBinding(jTableBinding);
         jTableBinding.bind();
-        jScrollPane2.setViewportView(jTable1);
+        jScrollPane2.setViewportView(tableGerenciarCrlvs);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -150,17 +204,10 @@ public class JIFGerenciarCrlvs extends javax.swing.JInternalFrame {
     private javax.swing.JButton btGerarXml;
     private javax.swing.JButton btVizualizarCrlv;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tableGerenciarCrlvs;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 
-//    public JTable getTableGerenciarCrlvs() {
-//        return tableGerenciarCrlvs;
-//    }
-//
-//    public void setTableGerenciarCrlvs(JTable tableGerenciarCrlvs) {
-//        this.tableGerenciarCrlvs = tableGerenciarCrlvs;
-//    }
 
     
 

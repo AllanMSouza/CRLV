@@ -66,7 +66,7 @@ public class DAOCrlv extends Database {
         boolean result = stm.execute();
         int idCrlv = 0;
         
-       ResultSet rs = select(crlv);
+       ResultSet rs = selectIpva(crlv);
        if(rs.next())
           idCrlv = rs.getInt("id_crlv");
         
@@ -85,12 +85,12 @@ public class DAOCrlv extends Database {
         stm.setString(6, crlv.getIpva().getVencSegundaCota());
         stm.setString(7, crlv.getIpva().getVencTerceiraCota());
         stm.setInt(8, idCrlv);
-        System.out.println(idCrlv);
+//        System.out.println(idCrlv);
         result = stm.execute();
         fecharBanco(con);
     }
     
-    private ResultSet select(CRLV crlv) throws SQLException{
+    private ResultSet selectIpva(CRLV crlv) throws SQLException{
        
 //        testarConexao(con);
         
@@ -105,11 +105,81 @@ public class DAOCrlv extends Database {
         return rs;
     }
     
+    public int update(CRLV crlv) throws ClassNotFoundException, ClassNotFoundException, SQLException{
+       int result;
+//        System.out.println("id_crlv = " + crlv.getIdCrlv());
+        con = abrirBanco(con);
+        
+        String sql = "update crlv set "
+                + "via = ?, cod_renavam = ?, rntrc = ?, exercicio = ?, nome = ?, cpf_cnpj = ?, placa = ?,"
+                + "uf_placa = ?, placa_ant = ?, uf_placa_ant = ?, chassi = ?, especie_tipo = ?, combustivel = ?,"
+                + "marca = ?, modelo = ?, ano_fab = ?, ano_mod = ?, cap = ?, pot = ?, cil = ?, categoria = ?, cor = ?, premio_tarifario = ?,"
+                + "iof = ?, premio_total = ?, data_pagamento = ?, observacoes = ?, local = ?, data = ?"
+                + " where id_crlv = ?";
+        
+        PreparedStatement stm = con.prepareStatement(sql);
+        stm.setInt(1, crlv.getVia());
+        stm.setString(2, crlv.getCodRenavam());
+        stm.setString(3, crlv.getRntrc());
+        stm.setString(4, crlv.getExercicio());
+        stm.setString(5, crlv.getNome());
+        stm.setString(6, crlv.getCpfCnpj());
+        stm.setString(7, crlv.getPlaca());
+        stm.setString(8, crlv.getUfPlaca());
+        stm.setString(9, crlv.getPlacaAnt());
+        stm.setString(10, crlv.getUfPlacaAnt());
+        stm.setString(11, crlv.getChassi());
+        stm.setString(12, crlv.getEspecieTipo());
+        stm.setString(13, crlv.getCombustivel());
+        stm.setString(14, crlv.getMarca());
+        stm.setString(15, crlv.getModelo());
+        stm.setInt(16, crlv.getAnoFab());
+        stm.setInt(17, crlv.getAnoMod());
+        stm.setString(18, crlv.getCap());
+        stm.setString(19, crlv.getPot());
+        stm.setString(20, crlv.getCil());
+        stm.setString(21, crlv.getCategoria());
+        stm.setString(22, crlv.getCor());
+        stm.setString(23, crlv.getPremioTarifario());
+        stm.setString(24, crlv.getIof());
+        stm.setString(25, crlv.getPremioTotal());
+        stm.setString(26, crlv.getDataPag());
+        stm.setString(27, crlv.getObservacoes());
+        stm.setString(28, crlv.getLocal());
+        stm.setString(29, crlv.getData());
+        stm.setInt(30, crlv.getIdCrlv());
+        
+        result = stm.executeUpdate();
+        //System.out.println(result);
+        if(result == 1){
+//            System.out.println("update tabela ipva = " +crlv.getIpva().getIdIpva());
+            sql = "update ipva set "
+                    + "cota_unica = ?, venc_cota_unica = ?, faixa_ipva = ?, parcelamento_cotas = ?,"
+                + "venc_primeira_cota = ?, venc_segunda_cota = ?, venc_terceira_cota = ? "
+                    + " where id_ipva = ?";
+            stm = con.prepareStatement(sql);
+            stm.setString(1, crlv.getIpva().getCotaUnica());
+            stm.setString(2, crlv.getIpva().getVencCotaUnica());
+            stm.setString(3, crlv.getIpva().getFaixaIpva());
+            stm.setString(4, crlv.getIpva().getParcelamentoCotas());
+            stm.setString(5, crlv.getIpva().getVencPrimeiraCota());
+            stm.setString(6, crlv.getIpva().getVencSegundaCota());
+            stm.setString(7, crlv.getIpva().getVencTerceiraCota());
+            stm.setInt(8, crlv.getIdCrlv());
+            stm.setInt(8, crlv.getIpva().getIdIpva());
+            
+            result = stm.executeUpdate();
+            fecharBanco(con);
+        }
+        
+        return result;
+    }
+    
     private LinkedList<CRLV> fetchAll() throws SQLException, ClassNotFoundException{
         LinkedList<CRLV> crlvs = new LinkedList<CRLV>();
         con = abrirBanco(con);
         
-        String sql = "select * from crlv left join ipva "
+        String sql = "select * from crlv inner join ipva "
                 + "on (id_crlv = crlv_id_crlv)";
         PreparedStatement stm = con.prepareStatement(sql);
         ResultSet rs = stm.executeQuery();
@@ -118,6 +188,7 @@ public class DAOCrlv extends Database {
             CRLV crlv = new CRLV();
             IPVA ipva = new IPVA();
             
+            crlv.setIdCrlv(rs.getInt("id_crlv"));
             crlv.setVia(rs.getInt("via"));
             crlv.setCodRenavam(rs.getString("cod_renavam"));
             crlv.setRntrc(rs.getString("rntrc"));
@@ -140,6 +211,8 @@ public class DAOCrlv extends Database {
             crlv.setCil(rs.getString("cil"));
             crlv.setCategoria(rs.getString("categoria"));
             crlv.setCor(rs.getString("cor"));
+//            crlv.getIpva().setIdIpva(rs.getInt("id_ipva"));
+            ipva.setIdIpva(rs.getInt("id_ipva"));
             ipva.setCotaUnica(rs.getString("cota_unica"));
             ipva.setFaixaIpva(rs.getString("faixa_ipva"));
             ipva.setVencCotaUnica(rs.getString("venc_cota_unica"));
