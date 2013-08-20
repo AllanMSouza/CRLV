@@ -20,8 +20,8 @@ public class DAOCrlv extends Database {
     
     private Connection con = null;
     
-    public void insert(CRLV crlv) throws ClassNotFoundException, SQLException{
-                
+    public int insert(CRLV crlv) throws ClassNotFoundException, SQLException{
+        int result;     
         con = abrirBanco(con);
         
         String sql = "insert into crlv"
@@ -63,7 +63,7 @@ public class DAOCrlv extends Database {
         stm.setString(28, crlv.getLocal());
         stm.setString(29, crlv.getData());
         
-        boolean result = stm.execute();
+        result = stm.executeUpdate();
         int idCrlv = 0;
         
        ResultSet rs = selectIpva(crlv);
@@ -86,8 +86,10 @@ public class DAOCrlv extends Database {
         stm.setString(7, crlv.getIpva().getVencTerceiraCota());
         stm.setInt(8, idCrlv);
 //        System.out.println(idCrlv);
-        result = stm.execute();
+        result = stm.executeUpdate();
         fecharBanco(con);
+        
+        return result;
     }
     
     private ResultSet selectIpva(CRLV crlv) throws SQLException{

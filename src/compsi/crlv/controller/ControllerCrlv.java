@@ -27,9 +27,14 @@ public class ControllerCrlv implements ActionListener {
     public ControllerCrlv(JIFCrlv tela, CRLV c) {
         jifCrlv = tela;
         daoCrlv = new DAOCrlv();
-        crlv = c;
         
-        jifCrlv.setModelCrlv(crlv);
+        if(c == null)
+            crlv = new CRLV();
+        
+        else{
+            crlv = c;
+            jifCrlv.setModelCrlv(crlv);
+        }
         
         jifCrlv.getBtSalvar().addActionListener(this);
     }  
@@ -58,18 +63,28 @@ public class ControllerCrlv implements ActionListener {
     
     private void execSalvarCrlv() throws ClassNotFoundException, SQLException{
          CRLV c = new CRLV();
-         c = jifCrlv.getModelCrlv(c, c.getIpva());
-         daoCrlv.insert(c);
+         c = jifCrlv.getModelCrlv(c, "adicionar");
+         int result = daoCrlv.insert(c);
+         if(result == 1){
+             JOptionPane.showMessageDialog(null, "Registro inserido com sucesso!");
+             jifCrlv.dispose();
+         }
+         else {
+             JOptionPane.showMessageDialog(null, "Erro ao inserir registro!");
+             jifCrlv.dispose();
+         }
     }
     
     private void execSalvarAlteracoesCrlv() throws ClassNotFoundException, SQLException{
-         crlv = jifCrlv.getModelCrlv(crlv, crlv.getIpva());
+         crlv = jifCrlv.getModelCrlv(crlv, "editar");
          int result = daoCrlv.update(crlv);
          if(result == 1){
              JOptionPane.showMessageDialog(null, "Registro Atualizado com sucesso!");
+             jifCrlv.dispose();
          }
          else {
              JOptionPane.showMessageDialog(null, "Erro ao atualizar registro!");
+             jifCrlv.dispose();
          }
     }
     

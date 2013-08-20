@@ -5,6 +5,7 @@
 package compsi.crlv.controller;
 
 import compsi.crlv.DAO.DAOCrlv;
+import compsi.crlv.model.CRLV;
 import compsi.crlv.view.JIFCrlv;
 import compsi.crlv.view.JIFGerenciarCrlvs;
 import java.awt.event.ActionEvent;
@@ -55,16 +56,21 @@ public class ControllerTableCrlv implements ActionListener{
     
     protected void editarCrlv(){
         int index = gCrlv.getTableGerenciarCrlvs().getSelectionModel().getLeadSelectionIndex();
-        //gCrlv.getCrlv().get(index);
-        JIFCrlv jifCrlv = new JIFCrlv();
-        ControllerCrlv conCrlv = new ControllerCrlv(jifCrlv, gCrlv.getCrlv().get(index));
-        jifCrlv.setVisible(true);
-        mw.getDesktop().add(jifCrlv);
-        jifCrlv.getBtSalvar().setText("Salvar Alterações");        
+        if(index > -1){
+            //gCrlv.getCrlv().get(index);
+            JIFCrlv jifCrlv = new JIFCrlv();
+            ControllerCrlv conCrlv = new ControllerCrlv(jifCrlv, gCrlv.getCrlv().get(index));
+            jifCrlv.setVisible(true);
+            mw.getDesktop().add(jifCrlv);
+            jifCrlv.getBtSalvar().setText("Salvar Alterações");
+        }
+        else 
+            JOptionPane.showMessageDialog(mw, "Selecione um documento para ser editado!");
     }
     
     protected void adicionarCrlv(){
         JIFCrlv jifCrlv = new JIFCrlv();
+        ControllerCrlv conCrlv = new ControllerCrlv(jifCrlv, null);
         jifCrlv.setVisible(true);
         mw.getDesktop().add(jifCrlv);
     }
