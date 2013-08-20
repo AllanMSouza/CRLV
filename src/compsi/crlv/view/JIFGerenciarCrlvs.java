@@ -186,7 +186,8 @@ public class JIFGerenciarCrlvs extends javax.swing.JInternalFrame {
 
         bindingGroup.bind();
 
-        pack();
+        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+        setBounds((screenSize.width-720)/2, (screenSize.height-434)/2, 720, 434);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btAdicionarCrlvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAdicionarCrlvActionPerformed

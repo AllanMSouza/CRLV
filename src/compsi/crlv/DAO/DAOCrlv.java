@@ -241,6 +241,25 @@ public class DAOCrlv extends Database {
         return fetchAll();
     }
     
+    public int destroy(int idCrlv) throws ClassNotFoundException, ClassNotFoundException, SQLException{
+        int result;
+        con = abrirBanco(con);
+        PreparedStatement stm;
+        String sql = "delete from ipva where crlv_id_crlv = ?";
+        stm = con.prepareStatement(sql);
+        stm.setInt(1, idCrlv);
+        result = stm.executeUpdate();
+        
+        if(result == 1){
+            sql = "delete from crlv where id_crlv = ?";
+            stm = con.prepareStatement(sql);
+            stm.setInt(1, idCrlv);
+            result = stm.executeUpdate();
+        }
+        
+        return result;
+    }
+    
 
         
 }

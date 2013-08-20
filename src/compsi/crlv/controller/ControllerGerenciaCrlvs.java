@@ -20,12 +20,12 @@ import javax.swing.JOptionPane;
  *
  * @author allan
  */
-public class ControllerTableCrlv implements ActionListener{
+public class ControllerGerenciaCrlvs implements ActionListener{
 
     MainWindow mw;
     JIFGerenciarCrlvs gCrlv;
     
-    public ControllerTableCrlv(JIFGerenciarCrlvs c, MainWindow m) {
+    public ControllerGerenciaCrlvs(JIFGerenciarCrlvs c, MainWindow m) {
         gCrlv = c;
         mw = m;
         gCrlv.getBtEditarCrlv().addActionListener(this);
@@ -36,21 +36,26 @@ public class ControllerTableCrlv implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent ae) {
-        String op = ae.getActionCommand();
-        switch(op){
-            case "Editar CRLV":
-                editarCrlv();
-                break;
-                
-            case "Adicionar CRLV":
-                adicionarCrlv();
-                break;
-                
-            case "Excluir CRLV":
-                deletarCrlv();
-                break;
-                
-        }       
+        try {
+            String op = ae.getActionCommand();
+            switch(op){
+                case "Editar CRLV":
+                    editarCrlv();
+                    break;
+                    
+                case "Adicionar CRLV":
+                    adicionarCrlv();
+                    break;
+                    
+                case "Excluir CRLV":
+                    deletarCrlv();
+                    break;       
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ControllerGerenciaCrlvs.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(ControllerGerenciaCrlvs.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }
     
@@ -71,15 +76,26 @@ public class ControllerTableCrlv implements ActionListener{
     protected void adicionarCrlv(){
         JIFCrlv jifCrlv = new JIFCrlv();
         ControllerCrlv conCrlv = new ControllerCrlv(jifCrlv, null);
-        jifCrlv.setVisible(true);
         mw.getDesktop().add(jifCrlv);
+        jifCrlv.setVisible(true);
     }
     
-    protected void deletarCrlv(){
+    protected void deletarCrlv() throws ClassNotFoundException, SQLException{
         int index = gCrlv.getTableGerenciarCrlvs().getSelectionModel().getLeadSelectionIndex();
         if(index > -1){
-            int teste = JOptionPane.showConfirmDialog(mw, "Deseja realmente excluir o documento selecionado?");
-            System.out.println(teste);
+            int resp = JOptionPane.showConfirmDialog(mw, "Deseja realmente excluir o documento selecionado?");
+            if(resp == 0){
+                CRLV tempCrlv = gCrlv.getCrlv().get(index);
+                DAOCrlv daoCrlv = new DAOCrlv();
+                int result = daoCrlv.destroy(tempCrlv.getIdCrlv());
+                
+                if(result == 1){
+                    JOptionPane.showMessageDialog(mw, "Registro excluido com sucesso!");
+                }
+                else {
+                    JOptionPane.showMessageDialog(mw, "Erro ao excluir registro!");
+                }
+            }
         }
         else{
             JOptionPane.showMessageDialog(mw, "Selecione um documento para ser excluido!");

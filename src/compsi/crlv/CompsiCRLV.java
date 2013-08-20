@@ -6,7 +6,7 @@ package compsi.crlv;
 import compsi.crlv.controller.ControllerLeitora;
 import compsi.crlv.controller.ControllerMainWIndow;
 import compsi.crlv.controller.ControllerSmartCard;
-import compsi.crlv.controller.ControllerTableCrlv;
+import compsi.crlv.controller.ControllerGerenciaCrlvs;
 import compsi.crlv.view.JIFLeitora;
 import compsi.crlv.view.MainWindow;
 import java.awt.Dimension;

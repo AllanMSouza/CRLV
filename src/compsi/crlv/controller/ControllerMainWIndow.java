@@ -36,9 +36,9 @@ public class ControllerMainWIndow implements ActionListener{
                 case "Listar Documentos":
                     DAOCrlv daoCrlv = new DAOCrlv();
                     JIFGerenciarCrlvs gCrlvs = new JIFGerenciarCrlvs(daoCrlv.getListCrlvs());
-                    ControllerTableCrlv conTableCrlv = new ControllerTableCrlv(gCrlvs, mw);
-                    gCrlvs.setVisible(true);
+                    ControllerGerenciaCrlvs conTableCrlv = new ControllerGerenciaCrlvs(gCrlvs, mw);
                     mw.getDesktop().add(gCrlvs);
+                    gCrlvs.setVisible(true);
                     break;
             }
         } catch (SQLException ex) {
