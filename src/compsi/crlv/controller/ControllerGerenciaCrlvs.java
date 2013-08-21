@@ -4,10 +4,12 @@
  */
 package compsi.crlv.controller;
 
+import com.thoughtworks.xstream.XStream;
 import compsi.crlv.DAO.DAOCrlv;
 import compsi.crlv.model.CRLV;
 import compsi.crlv.view.JIFCrlv;
 import compsi.crlv.view.JIFGerenciarCrlvs;
+import compsi.crlv.view.JIFXMLViewer;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import compsi.crlv.view.MainWindow;
@@ -31,6 +33,7 @@ public class ControllerGerenciaCrlvs implements ActionListener{
         gCrlv.getBtEditarCrlv().addActionListener(this);
         gCrlv.getBtAdicionarCrlv().addActionListener(this);
         gCrlv.getBtExcluirCrlv().addActionListener(this);
+        gCrlv.getBtGerarXml().addActionListener(this);
         
     }    
     
@@ -49,7 +52,12 @@ public class ControllerGerenciaCrlvs implements ActionListener{
                     
                 case "Excluir CRLV":
                     deletarCrlv();
-                    break;       
+                    break;  
+                    
+                case "Gerar XML":
+                    gerarXml();
+                    break;
+                    
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ControllerGerenciaCrlvs.class.getName()).log(Level.SEVERE, null, ex);
@@ -100,6 +108,23 @@ public class ControllerGerenciaCrlvs implements ActionListener{
         else{
             JOptionPane.showMessageDialog(mw, "Selecione um documento para ser excluido!");
         }
+    }
+    
+    protected void gerarXml(){
+        int index = gCrlv.getTableGerenciarCrlvs().getSelectionModel().getLeadSelectionIndex();
+        if(index > -1){
+            XStream xstream = new XStream();
+            CRLV c = gCrlv.getCrlv().get(index);
+            String xml = xstream.toXML(c);
+            
+            JIFXMLViewer jifXmlViewer = new JIFXMLViewer();
+            ControllerXMLViewer conXml = new ControllerXMLViewer(jifXmlViewer, xml, c.getCodRenavam());
+            jifXmlViewer.getTxtAreaXmlViewer().setText(xml);
+            mw.getDesktop().add(jifXmlViewer);
+            jifXmlViewer.setVisible(true);
+        }
+        else
+            JOptionPane.showMessageDialog(mw, "Selecione um documento para gerar o XML!");
     }
     
 }

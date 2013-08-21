@@ -17,11 +17,11 @@ import java.util.logging.Logger;
  *
  * @author allan
  */
-public class ControllerMainWIndow implements ActionListener{
+public class ControllerMainWindow implements ActionListener{
     
     MainWindow mw;
 
-    public ControllerMainWIndow(MainWindow m) {
+    public ControllerMainWindow(MainWindow m) {
         mw = m;
         
         mw.getMiListarDocumentos().addActionListener(this);
@@ -42,9 +42,9 @@ public class ControllerMainWIndow implements ActionListener{
                     break;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ControllerMainWIndow.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ControllerMainWindow.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ControllerMainWIndow.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ControllerMainWindow.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
