@@ -45,6 +45,8 @@ public class MainWindow extends javax.swing.JFrame {
         miGerarXML = new javax.swing.JMenuItem();
         miVizualizarDocumento = new javax.swing.JMenuItem();
         menuAssinador = new javax.swing.JMenu();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         menuSmartCard = new javax.swing.JMenu();
         menuConfiguracoesSmartCard = new javax.swing.JMenu();
         miInicializarCartao = new javax.swing.JMenuItem();
@@ -106,6 +108,14 @@ public class MainWindow extends javax.swing.JFrame {
         mbMainWindow.add(menuCrlv);
 
         menuAssinador.setText("Assinador");
+
+        jMenu1.setText("Assinar");
+
+        jMenuItem1.setText("AD_RB");
+        jMenu1.add(jMenuItem1);
+
+        menuAssinador.add(jMenu1);
+
         mbMainWindow.add(menuAssinador);
 
         menuSmartCard.setText("Smart Card");
@@ -157,7 +167,6 @@ public class MainWindow extends javax.swing.JFrame {
         );
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void miFormularioCrlvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miFormularioCrlvActionPerformed
@@ -393,6 +402,8 @@ public class MainWindow extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane desktop;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JLabel lblLsitec;
     private javax.swing.JMenuBar mbMainWindow;
     private javax.swing.JMenu menuAssinador;
