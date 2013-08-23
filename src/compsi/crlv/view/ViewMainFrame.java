@@ -46,7 +46,7 @@ public class ViewMainFrame extends javax.swing.JFrame {
         miVizualizarDocumento = new javax.swing.JMenuItem();
         menuAssinador = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        miAssinaturaADRB = new javax.swing.JMenuItem();
         menuSmartCard = new javax.swing.JMenu();
         menuConfiguracoesSmartCard = new javax.swing.JMenu();
         miInicializarCartao = new javax.swing.JMenuItem();
@@ -111,8 +111,8 @@ public class ViewMainFrame extends javax.swing.JFrame {
 
         jMenu1.setText("Assinar");
 
-        jMenuItem1.setText("AD_RB");
-        jMenu1.add(jMenuItem1);
+        miAssinaturaADRB.setText("AD_RB");
+        jMenu1.add(miAssinaturaADRB);
 
         menuAssinador.add(jMenu1);
 
@@ -398,12 +398,21 @@ public class ViewMainFrame extends javax.swing.JFrame {
     public void setMiVizualizarDocumento(JMenuItem miVizualizarDocumento) {
         this.miVizualizarDocumento = miVizualizarDocumento;
     }   
+
+    public JMenuItem getMiAssinaturaADRB() {
+        return miAssinaturaADRB;
+    }
+
+    public void setMiAssinaturaADRB(JMenuItem miAssinaturaADRB) {
+        this.miAssinaturaADRB = miAssinaturaADRB;
+    }
+    
+    
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane desktop;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JLabel lblLsitec;
     private javax.swing.JMenuBar mbMainWindow;
     private javax.swing.JMenu menuAssinador;
@@ -412,6 +421,7 @@ public class ViewMainFrame extends javax.swing.JFrame {
     private javax.swing.JMenu menuCrlv;
     private javax.swing.JMenu menuLeitora;
     private javax.swing.JMenu menuSmartCard;
+    private javax.swing.JMenuItem miAssinaturaADRB;
     private javax.swing.JMenuItem miDeletarDocumento;
     private javax.swing.JMenuItem miDesbloquearPIN;
     private javax.swing.JMenuItem miFormularioCrlv;

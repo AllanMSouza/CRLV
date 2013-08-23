@@ -62,7 +62,7 @@
                 <Property name="text" type="java.lang.String" value="Assinar"/>
               </Properties>
               <SubComponents>
-                <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
+                <MenuItem class="javax.swing.JMenuItem" name="miAssinaturaADRB">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="AD_RB"/>
                   </Properties>

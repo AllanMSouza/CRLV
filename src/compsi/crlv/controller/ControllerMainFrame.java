@@ -7,6 +7,7 @@ package compsi.crlv.controller;
 import compsi.crlv.DAO.DAOCrlv;
 import compsi.crlv.view.ViewGerenciarCrlvs;
 import compsi.crlv.view.ViewMainFrame;
+import compsi.crlv.view.signer.ViewSigner;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
@@ -40,6 +41,11 @@ public class ControllerMainFrame implements ActionListener{
                     mw.getDesktop().add(gCrlvs);
                     gCrlvs.setVisible(true);
                     break;
+                    
+                case "AD_RB":
+                    ViewSigner viewSigner = new ViewSigner();
+                    mw.getDesktop().add(viewSigner);
+                    viewSigner.setVisible(true);
             }
         } catch (SQLException ex) {
             Logger.getLogger(ControllerMainFrame.class.getName()).log(Level.SEVERE, null, ex);
