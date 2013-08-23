@@ -4,7 +4,7 @@
  */
 package compsi.crlv.view;
 
-import compsi.crlv.model.CRLV;
+import compsi.crlv.model.ModelCRLV;
 import java.util.LinkedList;
 import java.util.List;
 import javax.swing.JButton;
@@ -15,14 +15,14 @@ import javax.swing.JTable;
  *
  * @author allan
  */
-public class JIFGerenciarCrlvs extends javax.swing.JInternalFrame {
+public class ViewGerenciarCrlvs extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form JIFGerenciarCrlvs
      */
-    protected List<CRLV> crlv;
+    protected List<ModelCRLV> crlv;
 
-    public List<CRLV> getCrlv() {
+    public List<ModelCRLV> getCrlv() {
         return crlv;
     }
 
@@ -76,7 +76,7 @@ public class JIFGerenciarCrlvs extends javax.swing.JInternalFrame {
     
     
     
-    public JIFGerenciarCrlvs(LinkedList<CRLV> crlvs) {
+    public ViewGerenciarCrlvs(LinkedList<ModelCRLV> crlvs) {
         crlv = org.jdesktop.observablecollections.ObservableCollections.observableList(crlvs);
         initComponents();
     }

@@ -1,4 +1,4 @@
-package compsi.crlv.controller;
+package compsi.crlv.controller.pcsc;
 
 import java.awt.HeadlessException;
 import java.io.BufferedReader;
@@ -17,7 +17,7 @@ import javax.smartcardio.TerminalFactory;
 import javax.swing.JOptionPane;
 
 import pkcs11_lea.constants.Constants;
-import compsi.crlv.controller.Logger;
+import compsi.crlv.controller.logger.Logger;
 import pkcs11_lea.util.Hex;
 
 /**

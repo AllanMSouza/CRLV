@@ -4,7 +4,7 @@
  */
 package compsi.crlv.model;
 
-import compsi.crlv.controller.Logger;
+import compsi.crlv.controller.logger.Logger;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.io.FileNotFoundException;
@@ -12,7 +12,7 @@ import java.io.IOException;
 import javax.smartcardio.CardException;
 import javax.swing.JOptionPane;
 //import pkcs11_lea.log.Logger;
-import compsi.crlv.controller.PCSCManager;
+import compsi.crlv.controller.pcsc.PCSCManager;
 import java.util.ArrayList;
 import java.util.Iterator;
 import static pkcs11_lea.prompt.CommandProcessor.getCommand;
@@ -24,7 +24,7 @@ import pkcs11_lea.util.StringUtil;
  *
  * @author allan
  */
-public class Leitora {
+public class ModelLeitora {
     
     private Object[] readers;
     public static final String PROP_READERS = "readers";

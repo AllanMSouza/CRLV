@@ -5,7 +5,7 @@ import java.util.Iterator;
 
 import pkcs11_lea.constants.Constants;
 import pkcs11_lea.MainGui;
-import compsi.crlv.controller.Logger;
+import compsi.crlv.controller.logger.Logger;
 import compsi.crlv.prompt.CommandProcessor;
 import compsi.crlv.prompt.ModelCommand;
 

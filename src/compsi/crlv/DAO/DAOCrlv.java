@@ -4,8 +4,8 @@
  */
 package compsi.crlv.DAO;
 
-import compsi.crlv.model.CRLV;
-import compsi.crlv.model.IPVA;
+import compsi.crlv.model.ModelCRLV;
+import compsi.crlv.model.ModelIPVA;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,7 +20,7 @@ public class DAOCrlv extends Database {
     
     private Connection con = null;
     
-    public int insert(CRLV crlv) throws ClassNotFoundException, SQLException{
+    public int insert(ModelCRLV crlv) throws ClassNotFoundException, SQLException{
         int result;     
         con = abrirBanco(con);
         
@@ -92,7 +92,7 @@ public class DAOCrlv extends Database {
         return result;
     }
     
-    private ResultSet selectIpva(CRLV crlv) throws SQLException{
+    private ResultSet selectIpva(ModelCRLV crlv) throws SQLException{
        
 //        testarConexao(con);
         
@@ -107,7 +107,7 @@ public class DAOCrlv extends Database {
         return rs;
     }
     
-    public int update(CRLV crlv) throws ClassNotFoundException, ClassNotFoundException, SQLException{
+    public int update(ModelCRLV crlv) throws ClassNotFoundException, ClassNotFoundException, SQLException{
        int result;
 //        System.out.println("id_crlv = " + crlv.getIdCrlv());
         con = abrirBanco(con);
@@ -177,8 +177,8 @@ public class DAOCrlv extends Database {
         return result;
     }
     
-    private LinkedList<CRLV> fetchAll() throws SQLException, ClassNotFoundException{
-        LinkedList<CRLV> crlvs = new LinkedList<CRLV>();
+    private LinkedList<ModelCRLV> fetchAll() throws SQLException, ClassNotFoundException{
+        LinkedList<ModelCRLV> crlvs = new LinkedList<ModelCRLV>();
         con = abrirBanco(con);
         
         String sql = "select * from crlv inner join ipva "
@@ -187,8 +187,8 @@ public class DAOCrlv extends Database {
         ResultSet rs = stm.executeQuery();
         
         while(rs.next() == true){
-            CRLV crlv = new CRLV();
-            IPVA ipva = new IPVA();
+            ModelCRLV crlv = new ModelCRLV();
+            ModelIPVA ipva = new ModelIPVA();
             
             crlv.setIdCrlv(rs.getInt("id_crlv"));
             crlv.setVia(rs.getInt("via"));
@@ -237,7 +237,7 @@ public class DAOCrlv extends Database {
         return crlvs;
     }
     
-    public LinkedList<CRLV> getListCrlvs() throws SQLException, ClassNotFoundException{
+    public LinkedList<ModelCRLV> getListCrlvs() throws SQLException, ClassNotFoundException{
         return fetchAll();
     }
     

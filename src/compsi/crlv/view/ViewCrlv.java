@@ -4,8 +4,8 @@
  */
 package compsi.crlv.view;
 
-import compsi.crlv.model.CRLV;
-import compsi.crlv.model.IPVA;
+import compsi.crlv.model.ModelCRLV;
+import compsi.crlv.model.ModelIPVA;
 import javax.swing.JButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -14,12 +14,12 @@ import javax.swing.JTextField;
  *
  * @author allan
  */
-public class JIFCrlv extends javax.swing.JInternalFrame {
+public class ViewCrlv extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form JIFFormularioCrlv
      */
-    public JIFCrlv() {
+    public ViewCrlv() {
         initComponents();
     }
 
@@ -747,10 +747,8 @@ public class JIFCrlv extends javax.swing.JInternalFrame {
                         .addComponent(panelObservacoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(panelLocal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, 0)
-                                .addComponent(panelData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(50, Short.MAX_VALUE))
+                            .addComponent(panelData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
 
         pack();
@@ -1067,8 +1065,8 @@ public class JIFCrlv extends javax.swing.JInternalFrame {
         return btSalvar;
     }
     
-    public CRLV getModelCrlv(CRLV crlv, String action){
-        IPVA ipva = new IPVA();
+    public ModelCRLV getModelCrlv(ModelCRLV crlv, String action){
+        ModelIPVA ipva = new ModelIPVA();
         if(action.equals("editar"))    
             ipva.setIdIpva(crlv.getIpva().getIdIpva());
         
@@ -1122,7 +1120,7 @@ public class JIFCrlv extends javax.swing.JInternalFrame {
         return crlv;
     }
     
-    public void setModelCrlv(CRLV crlv){
+    public void setModelCrlv(ModelCRLV crlv){
         txtVia.setText(crlv.getVia().toString());
         txtCodRenavam.setText(crlv.getCodRenavam());
         txtRntrc.setText(crlv.getRntrc());

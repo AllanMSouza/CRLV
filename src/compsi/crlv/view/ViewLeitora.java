@@ -16,12 +16,12 @@ import javax.swing.JTextArea;
  *
  * @author allan
  */
-public class JIFLeitora extends javax.swing.JInternalFrame {
+public class ViewLeitora extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form JIFConectarLeitora
      */
-    public JIFLeitora() {
+    public ViewLeitora() {
         initComponents();
        
        
@@ -114,8 +114,6 @@ public class JIFLeitora extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        getAccessibleContext().setAccessibleName("Leitora Manager");
-
         java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
         setBounds((screenSize.width-586)/2, (screenSize.height-324)/2, 586, 324);
     }// </editor-fold>//GEN-END:initComponents
@@ -176,7 +174,7 @@ public class JIFLeitora extends javax.swing.JInternalFrame {
     }
 
     public static void setjTextAreaConsole(JTextArea jTextAreaConsole) {
-        JIFLeitora.jTextAreaConsole = jTextAreaConsole;
+        ViewLeitora.jTextAreaConsole = jTextAreaConsole;
     }
 
     public ButtonGroup getPcscProtocolTransportGroup() {

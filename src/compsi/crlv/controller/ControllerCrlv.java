@@ -5,8 +5,8 @@
 package compsi.crlv.controller;
 
 import compsi.crlv.DAO.DAOCrlv;
-import compsi.crlv.model.CRLV;
-import compsi.crlv.view.JIFCrlv;
+import compsi.crlv.model.ModelCRLV;
+import compsi.crlv.view.ViewCrlv;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
@@ -21,15 +21,15 @@ import javax.swing.JOptionPane;
 public class ControllerCrlv implements ActionListener {
 
     private DAOCrlv daoCrlv;
-    private JIFCrlv jifCrlv;
-    private CRLV crlv;
+    private ViewCrlv jifCrlv;
+    private ModelCRLV crlv;
 
-    public ControllerCrlv(JIFCrlv tela, CRLV c) {
+    public ControllerCrlv(ViewCrlv tela, ModelCRLV c) {
         jifCrlv = tela;
         daoCrlv = new DAOCrlv();
         
         if(c == null)
-            crlv = new CRLV();
+            crlv = new ModelCRLV();
         
         else{
             crlv = c;
@@ -62,7 +62,7 @@ public class ControllerCrlv implements ActionListener {
     }
     
     private void execSalvarCrlv() throws ClassNotFoundException, SQLException{
-         CRLV c = new CRLV();
+         ModelCRLV c = new ModelCRLV();
          c = jifCrlv.getModelCrlv(c, "adicionar");
          int result = daoCrlv.insert(c);
          if(result == 1){

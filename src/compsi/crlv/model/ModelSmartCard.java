@@ -17,9 +17,9 @@ import java.security.spec.RSAPublicKeySpec;
  *
  * @author allan
  */
-public class SmartCard {
+public class ModelSmartCard {
 
-    public SmartCard() throws NoSuchAlgorithmException {
+    public ModelSmartCard() throws NoSuchAlgorithmException {
         this.keyFactory = KeyFactory.getInstance("RSA");
         this.keyAES = new byte[16];
         this.r = new SecureRandom();

@@ -9,7 +9,7 @@ import java.util.Stack;
 
 import javax.smartcardio.CardException;
 
-import compsi.crlv.controller.Logger;
+import compsi.crlv.controller.logger.Logger;
 import compsi.crlv.prompt.commands.CommandCardInfo;
 import compsi.crlv.prompt.commands.CommandClear;
 import compsi.crlv.prompt.commands.CommandConnect;

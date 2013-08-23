@@ -4,7 +4,7 @@
  */
 package compsi.crlv.controller;
 
-import compsi.crlv.view.JIFXMLViewer;
+import compsi.crlv.view.ViewXMLViewer;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -19,11 +19,11 @@ import javax.swing.JOptionPane;
  * @author allan
  */
 public class ControllerXMLViewer implements ActionListener{
-    private JIFXMLViewer jifXmlViewer;
+    private ViewXMLViewer jifXmlViewer;
     private String conteudo;
     private String renavam;
 
-    public ControllerXMLViewer(JIFXMLViewer xmlViewer, String xml, String codRenavam) {
+    public ControllerXMLViewer(ViewXMLViewer xmlViewer, String xml, String codRenavam) {
         jifXmlViewer = xmlViewer;
         conteudo = xml;
         renavam = codRenavam;

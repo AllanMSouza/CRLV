@@ -13,7 +13,7 @@ import java.beans.PropertyChangeSupport;
  * 
  *
  */
-public class IPVA {
+public class ModelIPVA {
    
         private Integer idIpva;
     public static final String PROP_IDIPVA = "idIpva";

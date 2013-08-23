@@ -6,13 +6,13 @@ package compsi.crlv.controller;
 
 import com.thoughtworks.xstream.XStream;
 import compsi.crlv.DAO.DAOCrlv;
-import compsi.crlv.model.CRLV;
-import compsi.crlv.view.JIFCrlv;
-import compsi.crlv.view.JIFGerenciarCrlvs;
-import compsi.crlv.view.JIFXMLViewer;
+import compsi.crlv.model.ModelCRLV;
+import compsi.crlv.view.ViewCrlv;
+import compsi.crlv.view.ViewGerenciarCrlvs;
+import compsi.crlv.view.ViewXMLViewer;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import compsi.crlv.view.MainWindow;
+import compsi.crlv.view.ViewMainFrame;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,10 +24,10 @@ import javax.swing.JOptionPane;
  */
 public class ControllerGerenciaCrlvs implements ActionListener{
 
-    MainWindow mw;
-    JIFGerenciarCrlvs gCrlv;
+    ViewMainFrame mw;
+    ViewGerenciarCrlvs gCrlv;
     
-    public ControllerGerenciaCrlvs(JIFGerenciarCrlvs c, MainWindow m) {
+    public ControllerGerenciaCrlvs(ViewGerenciarCrlvs c, ViewMainFrame m) {
         gCrlv = c;
         mw = m;
         gCrlv.getBtEditarCrlv().addActionListener(this);
@@ -71,7 +71,7 @@ public class ControllerGerenciaCrlvs implements ActionListener{
         int index = gCrlv.getTableGerenciarCrlvs().getSelectionModel().getLeadSelectionIndex();
         if(index > -1){
             //gCrlv.getCrlv().get(index);
-            JIFCrlv jifCrlv = new JIFCrlv();
+            ViewCrlv jifCrlv = new ViewCrlv();
             ControllerCrlv conCrlv = new ControllerCrlv(jifCrlv, gCrlv.getCrlv().get(index));
             jifCrlv.setVisible(true);
             mw.getDesktop().add(jifCrlv);
@@ -82,7 +82,7 @@ public class ControllerGerenciaCrlvs implements ActionListener{
     }
     
     protected void adicionarCrlv(){
-        JIFCrlv jifCrlv = new JIFCrlv();
+        ViewCrlv jifCrlv = new ViewCrlv();
         ControllerCrlv conCrlv = new ControllerCrlv(jifCrlv, null);
         mw.getDesktop().add(jifCrlv);
         jifCrlv.setVisible(true);
@@ -93,7 +93,7 @@ public class ControllerGerenciaCrlvs implements ActionListener{
         if(index > -1){
             int resp = JOptionPane.showConfirmDialog(mw, "Deseja realmente excluir o documento selecionado?");
             if(resp == 0){
-                CRLV tempCrlv = gCrlv.getCrlv().get(index);
+                ModelCRLV tempCrlv = gCrlv.getCrlv().get(index);
                 DAOCrlv daoCrlv = new DAOCrlv();
                 int result = daoCrlv.destroy(tempCrlv.getIdCrlv());
                 
@@ -114,10 +114,10 @@ public class ControllerGerenciaCrlvs implements ActionListener{
         int index = gCrlv.getTableGerenciarCrlvs().getSelectionModel().getLeadSelectionIndex();
         if(index > -1){
             XStream xstream = new XStream();
-            CRLV c = gCrlv.getCrlv().get(index);
+            ModelCRLV c = gCrlv.getCrlv().get(index);
             String xml = xstream.toXML(c);
             
-            JIFXMLViewer jifXmlViewer = new JIFXMLViewer();
+            ViewXMLViewer jifXmlViewer = new ViewXMLViewer();
             ControllerXMLViewer conXml = new ControllerXMLViewer(jifXmlViewer, xml, c.getCodRenavam());
             jifXmlViewer.getTxtAreaXmlViewer().setText(xml);
             mw.getDesktop().add(jifXmlViewer);

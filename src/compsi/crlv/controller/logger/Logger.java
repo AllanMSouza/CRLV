@@ -2,9 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package compsi.crlv.controller;
+package compsi.crlv.controller.logger;
 
-import compsi.crlv.view.JIFLeitora;
+import compsi.crlv.view.ViewLeitora;
 
 /**
  *
@@ -14,6 +14,6 @@ public class Logger {
     
     public static void log(String text){
 
-         JIFLeitora.getConsole().setText(JIFLeitora.getConsole().getText() + "\n" + text);
+         ViewLeitora.getConsole().setText(ViewLeitora.getConsole().getText() + "\n" + text);
     }
 }

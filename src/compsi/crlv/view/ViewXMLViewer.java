@@ -11,12 +11,12 @@ import javax.swing.JTextArea;
  *
  * @author allan
  */
-public class JIFXMLViewer extends javax.swing.JInternalFrame {
+public class ViewXMLViewer extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form JIFXMLViewer
      */
-    public JIFXMLViewer() {
+    public ViewXMLViewer() {
         initComponents();
     }
 

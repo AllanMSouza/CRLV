@@ -5,8 +5,8 @@ import java.io.IOException;
 
 import javax.smartcardio.Card;
 
-import compsi.crlv.controller.Logger;
-import compsi.crlv.controller.PCSCManager;
+import compsi.crlv.controller.logger.Logger;
+import compsi.crlv.controller.pcsc.PCSCManager;
 import compsi.crlv.prompt.ModelCommand;
 import pkcs11_lea.util.Hex;
 

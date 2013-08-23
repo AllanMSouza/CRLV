@@ -4,11 +4,12 @@
  */
 package compsi.crlv.controller;
 
-import compsi.crlv.model.CRLV;
-import compsi.crlv.model.SmartCard;
-import compsi.crlv.view.JIFCrlv;
-import compsi.crlv.view.JIFLeitora;
-import compsi.crlv.view.MainWindow;
+import compsi.crlv.controller.pcsc.PCSCManager;
+import compsi.crlv.model.ModelCRLV;
+import compsi.crlv.model.ModelSmartCard;
+import compsi.crlv.view.ViewCrlv;
+import compsi.crlv.view.ViewLeitora;
+import compsi.crlv.view.ViewMainFrame;
 import java.awt.Cursor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -49,13 +50,13 @@ import pkcs11_lea.util.Hex;
  */
 public class ControllerSmartCard implements ActionListener {
 
-    private SmartCard sc;
-    private MainWindow mw;
+    private ModelSmartCard sc;
+    private ViewMainFrame mw;
     private String result;
-    private JIFLeitora jifLeitora;
+    private ViewLeitora jifLeitora;
 
-    public ControllerSmartCard(MainWindow m, JIFLeitora lei) throws NoSuchAlgorithmException {
-        sc = new SmartCard();    
+    public ControllerSmartCard(ViewMainFrame m, ViewLeitora lei) throws NoSuchAlgorithmException {
+        sc = new ModelSmartCard();    
         mw = m;
         jifLeitora = lei;
         
@@ -82,8 +83,8 @@ public class ControllerSmartCard implements ActionListener {
                     break;
                     
                 case "Formulário CRLV":
-                    JIFCrlv crlv = new JIFCrlv();
-                    ControllerCrlv conCrlv = new ControllerCrlv(crlv, new CRLV());
+                    ViewCrlv crlv = new ViewCrlv();
+                    ControllerCrlv conCrlv = new ControllerCrlv(crlv, new ModelCRLV());
                     mw.getDesktop().add(crlv);
                     crlv.setVisible(true);
                     break;

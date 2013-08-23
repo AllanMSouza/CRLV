@@ -5,8 +5,8 @@
 package compsi.crlv.controller;
 
 import compsi.crlv.DAO.DAOCrlv;
-import compsi.crlv.view.JIFGerenciarCrlvs;
-import compsi.crlv.view.MainWindow;
+import compsi.crlv.view.ViewGerenciarCrlvs;
+import compsi.crlv.view.ViewMainFrame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
@@ -17,11 +17,11 @@ import java.util.logging.Logger;
  *
  * @author allan
  */
-public class ControllerMainWindow implements ActionListener{
+public class ControllerMainFrame implements ActionListener{
     
-    MainWindow mw;
+    ViewMainFrame mw;
 
-    public ControllerMainWindow(MainWindow m) {
+    public ControllerMainFrame(ViewMainFrame m) {
         mw = m;
         
         mw.getMiListarDocumentos().addActionListener(this);
@@ -35,16 +35,16 @@ public class ControllerMainWindow implements ActionListener{
             switch(op) {
                 case "Listar Documentos":
                     DAOCrlv daoCrlv = new DAOCrlv();
-                    JIFGerenciarCrlvs gCrlvs = new JIFGerenciarCrlvs(daoCrlv.getListCrlvs());
+                    ViewGerenciarCrlvs gCrlvs = new ViewGerenciarCrlvs(daoCrlv.getListCrlvs());
                     ControllerGerenciaCrlvs conTableCrlv = new ControllerGerenciaCrlvs(gCrlvs, mw);
                     mw.getDesktop().add(gCrlvs);
                     gCrlvs.setVisible(true);
                     break;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ControllerMainWindow.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ControllerMainFrame.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ControllerMainWindow.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ControllerMainFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     

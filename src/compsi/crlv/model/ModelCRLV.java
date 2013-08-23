@@ -11,7 +11,7 @@ import java.beans.PropertyChangeSupport;
  *
  * @author allan
  */
-public class CRLV {
+public class ModelCRLV {
     
         private Integer idCrlv;
     public static final String PROP_IDCRLV = "idCrlv";
@@ -322,15 +322,15 @@ public class CRLV {
         propertyChangeSupport.firePropertyChange(PROP_COR, oldCor, cor);
     }
     
-        private IPVA ipva;
+        private ModelIPVA ipva;
     public static final String PROP_IPVA = "ipva";
 
-    public IPVA getIpva() {
+    public ModelIPVA getIpva() {
         return ipva;
     }
 
-    public void setIpva(IPVA ipva) {
-        IPVA oldIpva = this.ipva;
+    public void setIpva(ModelIPVA ipva) {
+        ModelIPVA oldIpva = this.ipva;
         this.ipva = ipva;
         propertyChangeSupport.firePropertyChange(PROP_IPVA, oldIpva, ipva);
     }

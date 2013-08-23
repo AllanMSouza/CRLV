@@ -4,9 +4,9 @@
  */
 package compsi.crlv.controller;
 
-import compsi.crlv.model.Leitora;
+import compsi.crlv.model.ModelLeitora;
 import compsi.crlv.prompt.CommandProcessor;
-import compsi.crlv.view.JIFLeitora;
+import compsi.crlv.view.ViewLeitora;
 import java.awt.Cursor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -25,12 +25,12 @@ import pkcs11_lea.MainGui;
  */
 public class ControllerLeitora implements ActionListener{
 
-    private Leitora leitora;
-    private JIFLeitora telaLeitora;
+    private ModelLeitora leitora;
+    private ViewLeitora telaLeitora;
     
-    public ControllerLeitora(JIFLeitora con) {
+    public ControllerLeitora(ViewLeitora con) {
         CommandProcessor.init();
-        leitora = new Leitora();
+        leitora = new ModelLeitora();
         telaLeitora = con;
         
         telaLeitora.getPcscReadersComboBox().setModel(new DefaultComboBoxModel(leitora.getReaders()));
