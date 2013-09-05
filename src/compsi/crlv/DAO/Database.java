@@ -33,7 +33,7 @@ public class Database {
     private String banco = "crlv";
     private String user = "root";
     private String senha = "toor";
-    private String dbPath = "/home/allan/NetBeansProjects/CRLV/db/crlv";
+    private String dbPath = "db/crlv";
     
     //private Connection con;
     
