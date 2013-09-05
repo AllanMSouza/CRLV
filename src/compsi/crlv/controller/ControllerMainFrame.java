@@ -5,14 +5,19 @@
 package compsi.crlv.controller;
 
 import compsi.crlv.DAO.DAOCrlv;
+import compsi.crlv.controller.signer.ControllerSigner;
+import compsi.crlv.model.ModelSigner;
 import compsi.crlv.view.ViewGerenciarCrlvs;
 import compsi.crlv.view.ViewMainFrame;
 import compsi.crlv.view.signer.ViewSigner;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.security.KeyStoreException;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -26,6 +31,7 @@ public class ControllerMainFrame implements ActionListener{
         mw = m;
         
         mw.getMiListarDocumentos().addActionListener(this);
+        mw.getMiAssinaturaADRB().addActionListener(this);
     }
 
     @Override
@@ -43,15 +49,37 @@ public class ControllerMainFrame implements ActionListener{
                     break;
                     
                 case "AD_RB":
-                    ViewSigner viewSigner = new ViewSigner();
-                    mw.getDesktop().add(viewSigner);
-                    viewSigner.setVisible(true);
+                    ModelSigner model = new ModelSigner();
+                    ViewSigner viewSigner = new ViewSigner(model);
+                    String renavam = requestCrlv();
+                    
+                    if(this.existeCrlv(renavam)){
+                         mw.getDesktop().add(viewSigner);
+                         ControllerSigner conSigner = new ControllerSigner(viewSigner, renavam);
+                         viewSigner.setVisible(true);
+                    }
+                    else {
+                        JOptionPane.showMessageDialog(null, "Documento não existe");
+                    }
+                        
+        
             }
+        } catch (KeyStoreException ex) {
+            Logger.getLogger(ControllerMainFrame.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             Logger.getLogger(ControllerMainFrame.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ControllerMainFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    public String requestCrlv(){
+        return JOptionPane.showInputDialog("Informe o RENAVAM");
+    }
+    
+    public boolean existeCrlv(String renavam){
+    
+        return new File("xmls/"+renavam+".xml").exists();
     }
     
 }

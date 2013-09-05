@@ -1,11 +1,17 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package compsi.crlv.view.signer;
 
 import compsi.crlv.model.ModelSigner;
+import compsi.crlv.view.signer.utils.CertificateRenderer;
+import compsi.icpbrasil.ICPBrasilConfig;
+import compsi.icpbrasil.ICPBrasilSigner;
+import compsi.icpbrasil.ICPBrasilStore;
+import java.security.KeyStoreException;
+import java.util.List;
 import javax.swing.DefaultListModel;
+import javax.swing.JButton;
+import javax.swing.JList;
+import javax.swing.JToggleButton;
 
 /**
  *
@@ -16,11 +22,25 @@ public class ViewSigner extends javax.swing.JInternalFrame {
     /**
      * Creates new form ViewSigner
      */
-    ModelSigner model;
-    
-    public ViewSigner() {
-        initComponents();
+    protected ModelSigner model;
+    protected List<ICPBrasilSigner> signers;
+    public ViewSigner(ModelSigner m) throws KeyStoreException {
+       ICPBrasilConfig config = ICPBrasilStore.getInstance().getConfig();
+       this.model = m;
+       signers = org.jdesktop.observablecollections.ObservableCollections.observableList(ICPBrasilStore.getInstance().getSigners());
+        //System.out.println(model.getSigners().get(0));
+       initComponents();
     }
+
+    public List<ICPBrasilSigner> getSigners() {
+        return signers;
+    }
+
+    public void setSigners(List<ICPBrasilSigner> signers) {
+        this.signers = signers;
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -34,28 +54,34 @@ public class ViewSigner extends javax.swing.JInternalFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList();
-        jToggleButton1 = new javax.swing.JToggleButton();
-        jToggleButton2 = new javax.swing.JToggleButton();
+        certificateList = new javax.swing.JList();
+        btAssinar = new javax.swing.JButton();
+        btCancelar = new javax.swing.JButton();
+
+        setClosable(true);
+        setIconifiable(true);
+        setTitle("Lista de Certificados");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Certificados"));
 
-        jList1.setModel(new DefaultListModel());
+        certificateList.setModel(new DefaultListModel());
+        certificateList.setCellRenderer(new CertificateRenderer());
 
-        org.jdesktop.beansbinding.ELProperty eLProperty = org.jdesktop.beansbinding.ELProperty.create("${owner.model.signers}");
-        org.jdesktop.swingbinding.JListBinding jListBinding = org.jdesktop.swingbinding.SwingBindings.createJListBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, eLProperty, jList1);
+        org.jdesktop.beansbinding.ELProperty eLProperty = org.jdesktop.beansbinding.ELProperty.create("${signers}");
+        org.jdesktop.swingbinding.JListBinding jListBinding = org.jdesktop.swingbinding.SwingBindings.createJListBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, eLProperty, certificateList);
+        jListBinding.setDetailBinding(org.jdesktop.beansbinding.ELProperty.create("${certificate}"));
         bindingGroup.addBinding(jListBinding);
 
-        jList1.addAncestorListener(new javax.swing.event.AncestorListener() {
+        certificateList.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                jList1AncestorAdded(evt);
+                certificateListAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
         });
-        jScrollPane2.setViewportView(jList1);
+        jScrollPane2.setViewportView(certificateList);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -68,9 +94,9 @@ public class ViewSigner extends javax.swing.JInternalFrame {
             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)
         );
 
-        jToggleButton1.setText("Assinar");
+        btAssinar.setText("Assinar");
 
-        jToggleButton2.setText("Cancelar");
+        btCancelar.setText("Cancelar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -81,9 +107,9 @@ public class ViewSigner extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jToggleButton1)
+                        .addComponent(btAssinar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jToggleButton2)))
+                        .addComponent(btCancelar)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -92,26 +118,41 @@ public class ViewSigner extends javax.swing.JInternalFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jToggleButton1)
-                    .addComponent(jToggleButton2))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btAssinar)
+                    .addComponent(btCancelar))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         bindingGroup.bind();
 
-        pack();
+        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+        setBounds((screenSize.width-513)/2, (screenSize.height-344)/2, 513, 344);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jList1AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jList1AncestorAdded
+    private void certificateListAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_certificateListAncestorAdded
         // TODO add your handling code here:
-    }//GEN-LAST:event_jList1AncestorAdded
+    }//GEN-LAST:event_certificateListAncestorAdded
 
+    public JButton getBtAssinar() {
+        return btAssinar;
+    }
+
+    public JButton getBtCancelar() {
+        return btCancelar;
+    }
+
+    public JList getCertificateList() {
+        return certificateList;
+    }
+
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JList jList1;
+    private javax.swing.JButton btAssinar;
+    private javax.swing.JButton btCancelar;
+    private javax.swing.JList certificateList;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JToggleButton jToggleButton2;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }
