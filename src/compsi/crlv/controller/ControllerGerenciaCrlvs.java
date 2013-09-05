@@ -73,8 +73,8 @@ public class ControllerGerenciaCrlvs implements ActionListener{
             //gCrlv.getCrlv().get(index);
             ViewCrlv jifCrlv = new ViewCrlv();
             ControllerCrlv conCrlv = new ControllerCrlv(jifCrlv, gCrlv.getCrlv().get(index));
-            jifCrlv.setVisible(true);
             mw.getDesktop().add(jifCrlv);
+             jifCrlv.setVisible(true);
             jifCrlv.getBtSalvar().setText("Salvar Alterações");
         }
         else 

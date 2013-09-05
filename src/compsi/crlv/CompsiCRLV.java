@@ -33,7 +33,7 @@ public class CompsiCRLV {
         //Security.addProvider(new BouncyCastleProvider());
         // TODO code application logic here
         UIManager.LookAndFeelInfo[] looks = UIManager.getInstalledLookAndFeels();
-        UIManager.setLookAndFeel(looks[1].getClassName());
+        UIManager.setLookAndFeel(looks[3].getClassName());
         
         ViewMainFrame m = new ViewMainFrame();
         Dimension tela = Toolkit.getDefaultToolkit().getScreenSize();   
