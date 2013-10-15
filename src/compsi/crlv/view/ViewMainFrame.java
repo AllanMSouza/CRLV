@@ -58,6 +58,8 @@ public class ViewMainFrame extends javax.swing.JFrame {
         miGravarDocumento = new javax.swing.JMenuItem();
         miRecuperarDocumento = new javax.swing.JMenuItem();
         miDeletarDocumento = new javax.swing.JMenuItem();
+        menuWizzard = new javax.swing.JMenu();
+        menuGerarAssinarGravar = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -152,6 +154,13 @@ public class ViewMainFrame extends javax.swing.JFrame {
         menuSmartCard.add(miDeletarDocumento);
 
         mbMainWindow.add(menuSmartCard);
+
+        menuWizzard.setText("Wizzard");
+
+        menuGerarAssinarGravar.setText("Gerar/Assinar/Gravar");
+        menuWizzard.add(menuGerarAssinarGravar);
+
+        mbMainWindow.add(menuWizzard);
 
         setJMenuBar(mbMainWindow);
 
@@ -406,6 +415,10 @@ public class ViewMainFrame extends javax.swing.JFrame {
     public void setMiAssinaturaADRB(JMenuItem miAssinaturaADRB) {
         this.miAssinaturaADRB = miAssinaturaADRB;
     }
+
+    public JMenuItem getMenuGerarAssinarGravar() {
+        return menuGerarAssinarGravar;
+    }
     
     
     
@@ -419,8 +432,10 @@ public class ViewMainFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuConectarLeitora;
     private javax.swing.JMenu menuConfiguracoesSmartCard;
     private javax.swing.JMenu menuCrlv;
+    private javax.swing.JMenuItem menuGerarAssinarGravar;
     private javax.swing.JMenu menuLeitora;
     private javax.swing.JMenu menuSmartCard;
+    private javax.swing.JMenu menuWizzard;
     private javax.swing.JMenuItem miAssinaturaADRB;
     private javax.swing.JMenuItem miDeletarDocumento;
     private javax.swing.JMenuItem miDesbloquearPIN;

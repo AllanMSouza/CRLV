@@ -6,13 +6,20 @@ package compsi.crlv.controller;
 
 import com.thoughtworks.xstream.XStream;
 import compsi.crlv.DAO.DAOCrlv;
+import compsi.crlv.controller.signer.ControllerSigner;
 import compsi.crlv.model.ModelCRLV;
+import compsi.crlv.model.ModelSigner;
 import compsi.crlv.view.ViewCrlv;
 import compsi.crlv.view.ViewGerenciarCrlvs;
 import compsi.crlv.view.ViewXMLViewer;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import compsi.crlv.view.ViewMainFrame;
+import compsi.crlv.view.signer.ViewSigner;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.security.KeyStoreException;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -34,7 +41,7 @@ public class ControllerGerenciaCrlvs implements ActionListener{
         gCrlv.getBtAdicionarCrlv().addActionListener(this);
         gCrlv.getBtExcluirCrlv().addActionListener(this);
         gCrlv.getBtGerarXml().addActionListener(this);
-        
+        gCrlv.getBtGravarCrlv().addActionListener(this);
     }    
     
     @Override
@@ -58,7 +65,14 @@ public class ControllerGerenciaCrlvs implements ActionListener{
                     gerarXml();
                     break;
                     
+                case "Assinar & Gravar":
+                    assinarGravar();
+                    break;                    
             }
+        } catch (IOException ex) {
+            Logger.getLogger(ControllerGerenciaCrlvs.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (KeyStoreException ex) {
+            Logger.getLogger(ControllerGerenciaCrlvs.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ControllerGerenciaCrlvs.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
@@ -125,6 +139,33 @@ public class ControllerGerenciaCrlvs implements ActionListener{
         }
         else
             JOptionPane.showMessageDialog(mw, "Selecione um documento para gerar o XML!");
+    }
+    
+    protected void assinarGravar() throws IOException, KeyStoreException{
+        int index = gCrlv.getTableGerenciarCrlvs().getSelectionModel().getLeadSelectionIndex();
+        if(index > -1){
+            XStream xstream = new XStream();
+            ModelCRLV c = gCrlv.getCrlv().get(index);
+            String xml = xstream.toXML(c);
+            
+             File f = new File("xmls/", c.getCodRenavam()+".xml");
+            if(f.exists())
+                f.delete();
+        
+            f.createNewFile();
+
+            FileWriter x = new FileWriter(f, true);
+            x.write("<?xml version =  \"1.0\" encoding=\"UTF-8\"?>\n" +xml);
+            x.close();
+            
+            ModelSigner model = new ModelSigner();
+            ViewSigner vs = new ViewSigner(model);
+            ControllerSigner cs = new ControllerSigner(vs, c.getCodRenavam(), true);
+            mw.getDesktop().add(vs);
+            vs.setVisible(true);
+        }
+        else
+            JOptionPane.showMessageDialog(mw, "Selecione um documento para ser assinado!");
     }
     
 }

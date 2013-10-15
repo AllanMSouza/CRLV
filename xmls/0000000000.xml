@@ -1,0 +1,42 @@
+<?xml version =  "1.0" encoding="UTF-8"?>
+<compsi.crlv.model.ModelCRLV>
+  <idCrlv>16</idCrlv>
+  <via>1</via>
+  <codRenavam>0000000000</codRenavam>
+  <rntrc>0000000</rntrc>
+  <exercicio>000</exercicio>
+  <nome>Allan</nome>
+  <cpfCnpj>407.355.708-41</cpfCnpj>
+  <placa>aaa-0000</placa>
+  <ufPlaca>sp</ufPlaca>
+  <placaAnt>-</placaAnt>
+  <ufPlacaAnt>-</ufPlacaAnt>
+  <chassi>123456489789</chassi>
+  <especieTipo>-</especieTipo>
+  <combustivel>-</combustivel>
+  <marca>-</marca>
+  <modelo></modelo>
+  <anoFab>2010</anoFab>
+  <anoMod>2013</anoMod>
+  <cap>-</cap>
+  <pot>-</pot>
+  <cil>-</cil>
+  <categoria>-</categoria>
+  <cor>-</cor>
+  <ipva>
+    <idIpva>9</idIpva>
+    <cotaUnica>-</cotaUnica>
+    <vencCotaUnica>-</vencCotaUnica>
+    <faixaIpva>-</faixaIpva>
+    <parcelamentoCotas>-</parcelamentoCotas>
+    <vencPrimeiraCota>-</vencPrimeiraCota>
+    <vencSegundaCota>-</vencSegundaCota>
+    <vencTerceiraCota>-</vencTerceiraCota>
+  </ipva>
+  <iof>-</iof>
+  <premioTotal>-</premioTotal>
+  <dataPag>-</dataPag>
+  <observacoes>-	-	-</observacoes>
+  <local></local>
+  <data></data>
+</compsi.crlv.model.ModelCRLV>

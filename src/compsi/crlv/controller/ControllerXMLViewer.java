@@ -55,10 +55,13 @@ public class ControllerXMLViewer implements ActionListener{
     private boolean salvarXml() throws IOException{
         boolean status;
         File f = new File("xmls/", renavam+".xml");
+        if(f.exists())
+            f.delete();
+        
         status = f.createNewFile();
         
         FileWriter x = new FileWriter(f, true);
-        x.write("<?xml version =  \"1.0\" encoding=\"UFT-8\"?>\n" + conteudo);
+        x.write("<?xml version =  \"1.0\" encoding=\"UTF-8\"?>\n" + conteudo);
         x.close();
         return status;
     

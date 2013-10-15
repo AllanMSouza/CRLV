@@ -56,7 +56,8 @@ public class ControllerLeitora implements ActionListener{
             try {
 
                 CommandProcessor.process("connect " + telaLeitora.getPcscReadersComboBox().getSelectedIndex() + " " + transportProtocol);
-
+//                CommandProcessor.process("connect " + telaLeitora.getPcscReadersComboBox().getSelectedIndex() + " " + 0);
+                //System.out.println(telaLeitora.getPcscReadersComboBox().getSelectedIndex());
                 telaLeitora.getBtConectar().setText("Desconectar");
 
                 Cursor hourglassCursor = new Cursor(Cursor.WAIT_CURSOR);

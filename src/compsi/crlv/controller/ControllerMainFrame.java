@@ -8,6 +8,7 @@ import compsi.crlv.DAO.DAOCrlv;
 import compsi.crlv.controller.signer.ControllerSigner;
 import compsi.crlv.model.ModelSigner;
 import compsi.crlv.view.ViewGerenciarCrlvs;
+import compsi.crlv.view.ViewGravarRecuperar;
 import compsi.crlv.view.ViewMainFrame;
 import compsi.crlv.view.signer.ViewSigner;
 import java.awt.event.ActionEvent;
@@ -32,6 +33,7 @@ public class ControllerMainFrame implements ActionListener{
         
         mw.getMiListarDocumentos().addActionListener(this);
         mw.getMiAssinaturaADRB().addActionListener(this);
+        mw.getMenuGerarAssinarGravar().addActionListener(this);
     }
 
     @Override
@@ -55,13 +57,18 @@ public class ControllerMainFrame implements ActionListener{
                     
                     if(this.existeCrlv(renavam)){
                          mw.getDesktop().add(viewSigner);
-                         ControllerSigner conSigner = new ControllerSigner(viewSigner, renavam);
+                         ControllerSigner conSigner = new ControllerSigner(viewSigner, renavam, false);
                          viewSigner.setVisible(true);
                     }
                     else {
                         JOptionPane.showMessageDialog(null, "Documento não existe");
                     }
-                        
+                     break; 
+                    
+                case "Gerar/Assinar/Gravar":
+                    this.showViewGravarRecuperar();
+                    
+                    break;
         
             }
         } catch (KeyStoreException ex) {
@@ -80,6 +87,14 @@ public class ControllerMainFrame implements ActionListener{
     public boolean existeCrlv(String renavam){
     
         return new File("xmls/"+renavam+".xml").exists();
+    }
+    
+    public void showViewGravarRecuperar(){
+        ViewGravarRecuperar gr = new ViewGravarRecuperar();
+        mw.getDesktop().add(gr);
+        gr.setVisible(true);
+        
+        ControllerGravarRecuperar conGr = new ControllerGravarRecuperar(gr, mw);
     }
     
 }

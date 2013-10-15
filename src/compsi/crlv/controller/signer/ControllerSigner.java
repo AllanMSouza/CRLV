@@ -4,6 +4,9 @@
  */
 package compsi.crlv.controller.signer;
 
+import compsi.crlv.controller.ControllerSmartCard;
+import compsi.crlv.model.ModelLeitora;
+import compsi.crlv.prompt.CommandProcessor;
 import compsi.crlv.view.signer.ViewSigner;
 import compsi.icpbrasil.ICPBrasilSigner;
 import compsi.icpbrasil.command.FirstSignature;
@@ -25,10 +28,12 @@ public class ControllerSigner implements ActionListener{
 
     private ViewSigner s;
     private String codRenavam;
+    private boolean wirzzard;
     
-    public ControllerSigner(ViewSigner vs, String renavam) {
+    public ControllerSigner(ViewSigner vs, String renavam, boolean wizzard) {
         this.s = vs;
         this.codRenavam = renavam;
+        this.wirzzard = wizzard;
         
         s.getBtAssinar().addActionListener(this);
         s.getBtCancelar().addActionListener(this);
@@ -63,11 +68,30 @@ public class ControllerSigner implements ActionListener{
         //System.out.println(s.getSigners().get(index));
         ICPBrasilSigner signer = s.getSigners().get(index);
 //        System.out.println(new File("xmls/1.xml").exists());
+              
         FirstSignature command = new FirstSignature(new File("xmls/"+codRenavam+".xml"), signer);
+        File f = new File("assinados/"+codRenavam+".p7s");
+        if(f.exists())
+            f.delete();
+        
         FileOutputStream assinado =  new FileOutputStream(new File("assinados/"+codRenavam+".p7s"));
+        
         assinado.write(command.execute(SignType.ADRB1V0));
         assinado.close();
         
-        
+        if(wirzzard){
+            this.conectarLeitora();
+            
+            ControllerSmartCard cs = new ControllerSmartCard(null, null);
+            String result = cs.gravar("assinados/"+codRenavam+".p7s");
+            System.out.println(result);
+        }
+                
+    }
+    
+    public void conectarLeitora() throws Exception{
+        CommandProcessor.process("connect " + 0 + " " + "T=0");
+        ModelLeitora leitora = new ModelLeitora();
+        String result = leitora.Select_APPL();
     }
 }

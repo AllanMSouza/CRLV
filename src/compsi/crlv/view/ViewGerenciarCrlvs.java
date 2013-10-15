@@ -67,11 +67,15 @@ public class ViewGerenciarCrlvs extends javax.swing.JInternalFrame {
     }
 
     public JButton getBtVizualizarCrlv() {
-        return btVizualizarCrlv;
+        return btGravarCrlv;
     }
 
     public void setBtVizualizarCrlv(JButton btVizualizarCrlv) {
-        this.btVizualizarCrlv = btVizualizarCrlv;
+        this.btGravarCrlv = btVizualizarCrlv;
+    }
+
+    public JButton getBtGravarCrlv() {
+        return btGravarCrlv;
     }
     
     
@@ -94,7 +98,7 @@ public class ViewGerenciarCrlvs extends javax.swing.JInternalFrame {
         btAdicionarCrlv = new javax.swing.JButton();
         btEditarCrlv = new javax.swing.JButton();
         btExcluirCrlv = new javax.swing.JButton();
-        btVizualizarCrlv = new javax.swing.JButton();
+        btGravarCrlv = new javax.swing.JButton();
         btGerarXml = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tableGerenciarCrlvs = new javax.swing.JTable();
@@ -115,10 +119,10 @@ public class ViewGerenciarCrlvs extends javax.swing.JInternalFrame {
 
         btExcluirCrlv.setText("Excluir CRLV");
 
-        btVizualizarCrlv.setText("Vizualizar CRLV");
-        btVizualizarCrlv.addActionListener(new java.awt.event.ActionListener() {
+        btGravarCrlv.setText("Assinar & Gravar");
+        btGravarCrlv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btVizualizarCrlvActionPerformed(evt);
+                btGravarCrlvActionPerformed(evt);
             }
         });
 
@@ -153,31 +157,30 @@ public class ViewGerenciarCrlvs extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(btAdicionarCrlv, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btEditarCrlv, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btExcluirCrlv, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btVizualizarCrlv, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btGerarXml, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 12, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btAdicionarCrlv, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btEditarCrlv, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btExcluirCrlv, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(2, 2, 2)
+                        .addComponent(btGerarXml, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btGravarCrlv, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 688, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(12, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btAdicionarCrlv)
                     .addComponent(btEditarCrlv)
                     .addComponent(btExcluirCrlv)
-                    .addComponent(btVizualizarCrlv)
+                    .addComponent(btGravarCrlv)
                     .addComponent(btGerarXml))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -194,16 +197,16 @@ public class ViewGerenciarCrlvs extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btAdicionarCrlvActionPerformed
 
-    private void btVizualizarCrlvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVizualizarCrlvActionPerformed
+    private void btGravarCrlvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGravarCrlvActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btVizualizarCrlvActionPerformed
+    }//GEN-LAST:event_btGravarCrlvActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAdicionarCrlv;
     private javax.swing.JButton btEditarCrlv;
     private javax.swing.JButton btExcluirCrlv;
     private javax.swing.JButton btGerarXml;
-    private javax.swing.JButton btVizualizarCrlv;
+    private javax.swing.JButton btGravarCrlv;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tableGerenciarCrlvs;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;

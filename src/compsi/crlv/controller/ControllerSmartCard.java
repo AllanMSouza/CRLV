@@ -60,16 +60,19 @@ public class ControllerSmartCard implements ActionListener {
         mw = m;
         jifLeitora = lei;
         
-        mw.getMiVersao().addActionListener(this);
-        mw.getMiInicializarCartao().addActionListener(this);
-        mw.getMiDesbloquearPIN().addActionListener(this);
-        mw.getMiTrocarPIN().addActionListener(this);
-        mw.getMiTrocarPUK().addActionListener(this);
-        mw.getMiVerificarDocumento().addActionListener(this);
-        mw.getMiDeletarDocumento().addActionListener(this);
-        mw.getMiGravarDocumento().addActionListener(this);
-        mw.getMiRecuperarDocumento().addActionListener(this);
-        mw.getMiFormularioCrlv().addActionListener(this);
+        if(mw != null){
+            mw.getMiVersao().addActionListener(this);
+            mw.getMiInicializarCartao().addActionListener(this);
+            mw.getMiDesbloquearPIN().addActionListener(this);
+            mw.getMiTrocarPIN().addActionListener(this);
+            mw.getMiTrocarPUK().addActionListener(this);
+            mw.getMiVerificarDocumento().addActionListener(this);
+            mw.getMiDeletarDocumento().addActionListener(this);
+            mw.getMiGravarDocumento().addActionListener(this);
+            mw.getMiRecuperarDocumento().addActionListener(this);
+            mw.getMiFormularioCrlv().addActionListener(this);
+        }
+        
     }    
     
     @Override
@@ -790,6 +793,208 @@ public class ControllerSmartCard implements ActionListener {
             return resultado.substring(resultado.length() - 4, resultado.length());
         }
    }
+     
+     public String gravar(String arquivo) throws CardException, FileNotFoundException, IOException, NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, InvalidKeySpecException, InvalidKeySpecException, IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException{
+         result = autenticaPin();
+        if(result.equals("9000")){
+            result = this.verificarContainerZero();
+            if(result.equals("01")){
+             //possui conteudo
+             result = this.deletarContainerZero();
+             result = this.importarContainerZero(arquivo);
+            }
+            else {
+                //não possui
+                result = this.importarContainerZero(arquivo);
+            }
+            
+            return result;
+        }
+        else
+            ShowError("Autentica PIN", result);
+         
+        
+        return result;
+         
+        
+     }
+     
+     public String verificarContainerZero() throws UnsupportedEncodingException, CardException, FileNotFoundException, IOException{
+        byte[] response = null;
+        String resultado = null;
+        String result = null;
+
+
+        String Container = new String("0");
+
+       if (Container == null) {
+            return "0C00";
+        }
+
+        byte[] Container_ascii = Container.getBytes("US-ASCII");
+        Container_ascii[0] -= 48;
+        response = PCSCManager.sendAPDU("8037" + Hex.printBytesHexa(Container_ascii) + "0000");
+        resultado = Hex.printBytesHexa(response);
+        result = resultado.substring(resultado.length() - 4, resultado.length() - 2);
+        if (result.equals(Constants.RESPONSE_APDU_OK)) {
+            result = resultado.substring(0, resultado.length() - 4);
+        } else {
+            resultado.substring(resultado.length() - 4, resultado.length());
+        }
+
+        return result;
+         
+     }
+     
+     public String deletarContainerZero() throws UnsupportedEncodingException, CardException, FileNotFoundException, IOException{
+        
+        byte[] response = null;
+        String resultado = null;
+        String result = null;
+
+
+        String Container = new String("0");
+
+        if (Container == null) {
+            return "0C00";
+        }
+
+        byte[] Container_ascii = Container.getBytes("US-ASCII");
+        Container_ascii[0] -= 48;
+
+        // PRIMEIRO VERIFICA SE TEM DOCUMENTO ARMAZENADO NESTE CONTAINER
+        response = PCSCManager.sendAPDU("8037" + Hex.printBytesHexa(Container_ascii) + "0000");
+        resultado = Hex.printBytesHexa(response);
+        result = resultado.substring(resultado.length() - 4, resultado.length() - 2);
+        if (result.equals(Constants.RESPONSE_APDU_OK)) {
+            result = resultado.substring(0, resultado.length() - 4);
+            if (result.equals("01")) {// tem documento neste container então deletar
+                response = PCSCManager.sendAPDU("8011" + Hex.printBytesHexa(Container_ascii) + "0000");
+                resultado = Hex.printBytesHexa(response);
+                return resultado.substring(resultado.length() - 4, resultado.length());
+            }
+            else{
+              return resultado.substring(0,resultado.length() - 4);
+            }
+         
+        } else {
+            return resultado.substring(resultado.length() - 4, resultado.length());
+        }
+     }
+     
+     public String exportarContainerZero(){
+     
+         return "";
+     }
+     
+     public String importarContainerZero(String nomeArquivo) throws NoSuchAlgorithmException, UnsupportedEncodingException, FileNotFoundException, IOException, CardException{
+         byte[] response = null;
+        String resultado = null;
+        String result = null;
+        MessageDigest md = MessageDigest.getInstance("SHA-256");
+
+        PCSCManager.LOGAR("Importar Documento");
+
+
+        String Container = new String("0");
+       
+
+        if (Container == null) {
+            return "0C00";
+        }
+
+        byte[] Container_ascii = Container.getBytes("US-ASCII");
+        Container_ascii[0] -= 48;
+
+        String Sequencia = new String("0");
+        byte[] Sequencia_ascii = Sequencia.getBytes("US-ASCII");
+        Sequencia_ascii[0] -= 48;
+
+//        JFileChooser file = new JFileChooser();
+//        file.setFileSelectionMode(JFileChooser.FILES_ONLY);
+//        int i = file.showSaveDialog(null);
+        int max_buffer = 239;
+        long contador = 0;
+        int lido = 0;
+        String lido_s = null;
+        String comando = null;
+
+        byte[] buffer_in = new byte[239];
+
+
+        if (!nomeArquivo.equals("")) {
+            FileInputStream fis;
+            DataInputStream dis;
+            File arquivo = new File(nomeArquivo);
+            String fi = arquivo.getPath();
+            fis = new FileInputStream(fi);
+            dis = new DataInputStream(fis);
+
+            File arq = new File(fi);
+            long tam_arq = arq.length();
+
+            md.reset();
+            while (contador != tam_arq) {
+                lido = dis.read(buffer_in, 0, 239);
+
+                md.update(buffer_in, 0, lido);
+
+                contador += lido;
+                if (lido < max_buffer) {
+                    Container_ascii[0] += 128;
+                }
+
+                lido_s = Long.toHexString(lido).toUpperCase();
+
+                if (lido_s.length() < 2) {
+                    lido_s = "0" + lido_s;
+                }
+
+                //    buffer.length = Integer.valueOf(lido.toString());
+
+                comando = "8077" + Hex.printBytesHexa(Container_ascii)
+                        + Hex.printBytesHexa(Sequencia_ascii)
+                        + lido_s
+                        + Hex.printBytesHexa(buffer_in, lido);
+
+                response = PCSCManager.sendAPDU(comando);
+
+                resultado = Hex.printBytesHexa(response);
+                result = resultado.substring(resultado.length() - 4, resultado.length() - 2);
+                if (result.equals(Constants.RESPONSE_APDU_OK)) {
+                    Sequencia_ascii[0]++;
+                    continue;
+                } else {
+                    break;
+                }
+            }
+            dis.close();
+            fis.close();
+        }
+
+        byte[] mdbytes = md.digest();
+
+        //convert the byte to hex format method 1
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < mdbytes.length; i++) {
+            sb.append(Integer.toString((mdbytes[i] & 0xff) + 0x100, 16).substring(1));
+        }
+
+        //     System.out.println("Hex format : " + sb.toString().toUpperCase());
+
+        if (resultado.substring(0, resultado.length() - 4).equals(sb.toString().toUpperCase())) {
+            resultado = "9000";
+        } else {
+            resultado = "6984"; // dados invalidos
+        }
+
+
+        return resultado;
+     }
+     
+     
+     
+     
      
     void ShowError(String rotina, String rv) {
         JOptionPane.showMessageDialog(null, "Função: " + rotina);
