@@ -6,7 +6,9 @@ package compsi.crlv.controller;
 
 import compsi.crlv.controller.pcsc.PCSCManager;
 import compsi.crlv.model.ModelCRLV;
+import compsi.crlv.model.ModelLeitora;
 import compsi.crlv.model.ModelSmartCard;
+import compsi.crlv.prompt.CommandProcessor;
 import compsi.crlv.view.ViewCrlv;
 import compsi.crlv.view.ViewLeitora;
 import compsi.crlv.view.ViewMainFrame;
@@ -87,7 +89,7 @@ public class ControllerSmartCard implements ActionListener {
                     
                 case "Formulário CRLV":
                     ViewCrlv crlv = new ViewCrlv();
-                    ControllerCrlv conCrlv = new ControllerCrlv(crlv, new ModelCRLV());
+                    //ControllerCrlv conCrlv = new ControllerCrlv(crlv, new ModelCRLV());
                     mw.getDesktop().add(crlv);
                     crlv.setVisible(true);
                     break;
@@ -794,6 +796,30 @@ public class ControllerSmartCard implements ActionListener {
         }
    }
      
+     public String recuperar() throws CardException, CardException, FileNotFoundException, IOException, NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, InvalidKeySpecException, IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException{
+         result = autenticaPin();
+        if(result.equals("9000")){
+            result = this.verificarContainerZero();
+            if(result.equals("01")){
+             //possui conteudo
+             result = this.exportarContainerZero();
+             
+             ShowError("Recuperar Documento", result);
+            }
+            else {
+                //não possui
+                //result = this.importarContainerZero(arquivo);
+            }
+            
+            return result;
+        }
+        else
+            ShowError("Autentica PIN", result);
+         
+        
+        return result;
+     }
+     
      public String gravar(String arquivo) throws CardException, FileNotFoundException, IOException, NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, InvalidKeySpecException, InvalidKeySpecException, IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException{
          result = autenticaPin();
         if(result.equals("9000")){
@@ -881,12 +907,7 @@ public class ControllerSmartCard implements ActionListener {
             return resultado.substring(resultado.length() - 4, resultado.length());
         }
      }
-     
-     public String exportarContainerZero(){
-     
-         return "";
-     }
-     
+          
      public String importarContainerZero(String nomeArquivo) throws NoSuchAlgorithmException, UnsupportedEncodingException, FileNotFoundException, IOException, CardException{
          byte[] response = null;
         String resultado = null;
@@ -992,8 +1013,87 @@ public class ControllerSmartCard implements ActionListener {
         return resultado;
      }
      
+     public String exportarContainerZero() throws CardException,
+            FileNotFoundException,
+            IOException {
+        byte[] response = null;
+        String resultado = null;
+        String result = null;
+
+
+        PCSCManager.LOGAR("Exporta Documento");
+
+        String Container = new String("0");
+      
+        if (Container == null) {
+            return "0C00";
+        }
+
+        byte[] Container_ascii = Container.getBytes("US-ASCII");
+        Container_ascii[0] -= 48;
+
+        String Sequencia = new String("0");
+        byte[] Sequencia_ascii = Sequencia.getBytes("US-ASCII");
+        Sequencia_ascii[0] -= 48;
+
+        JFileChooser dir = new JFileChooser();
+        dir.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        int i = dir.showSaveDialog(null);
+        String comando = null;
+
+        if (i != 1) {
+            String Name_File = null;
+
+            while (Name_File == null) {
+                Name_File = JOptionPane.showInputDialog("Digite o nome do arquivo");
+
+                if (Name_File == null) {
+                    JOptionPane.showMessageDialog(null, "Digite o nome do arquivo !!!");
+                    Name_File = "";
+                }
+            }
+
+            FileOutputStream fos;
+            DataOutputStream dos;
+
+            String fi = dir.getSelectedFile() + "/" + Name_File;
+            fos = new FileOutputStream(fi);
+            dos = new DataOutputStream(fos);
+
+            String retorno = "00";
+
+            while (retorno.equals("00")) {
+                comando = "8078" + Hex.printBytesHexa(Container_ascii)
+                        + Hex.printBytesHexa(Sequencia_ascii) + "00";
+                response = PCSCManager.sendAPDU(comando);
+                resultado = Hex.printBytesHexa(response);
+                result = resultado.substring(resultado.length() - 4, resultado.length() - 2);
+
+                if (result.equals(Constants.RESPONSE_APDU_OK)) {
+                    dos.write(response, 2, response.length - 4);
+                    retorno = resultado.substring(0, 2);
+                    Sequencia_ascii[0]++;
+                    continue;
+                } else {
+                    break;
+                }
+            }
+
+            if (!retorno.equals("00")) {
+                dos.close();
+                fos.close();
+            }
+        }
+        return resultado.substring(resultado.length() - 4, resultado.length());
+    }
      
      
+     public void conectarLeitora() throws Exception{
+        CommandProcessor.process("connect " + 0 + " " + "T=0");
+        ModelLeitora leitora = new ModelLeitora();
+        ViewLeitora l = new ViewLeitora();
+        String result = leitora.Select_APPL();
+    }
      
      
     void ShowError(String rotina, String rv) {

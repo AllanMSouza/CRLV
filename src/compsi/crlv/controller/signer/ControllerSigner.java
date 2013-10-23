@@ -80,18 +80,15 @@ public class ControllerSigner implements ActionListener{
         assinado.close();
         
         if(wirzzard){
-            this.conectarLeitora();
+         //   this.conectarLeitora();
             
             ControllerSmartCard cs = new ControllerSmartCard(null, null);
+            cs.conectarLeitora();
             String result = cs.gravar("assinados/"+codRenavam+".p7s");
             System.out.println(result);
         }
                 
     }
     
-    public void conectarLeitora() throws Exception{
-        CommandProcessor.process("connect " + 0 + " " + "T=0");
-        ModelLeitora leitora = new ModelLeitora();
-        String result = leitora.Select_APPL();
-    }
+    
 }

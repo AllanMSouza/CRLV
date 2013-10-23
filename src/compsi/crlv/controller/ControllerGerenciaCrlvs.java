@@ -86,7 +86,7 @@ public class ControllerGerenciaCrlvs implements ActionListener{
         if(index > -1){
             //gCrlv.getCrlv().get(index);
             ViewCrlv jifCrlv = new ViewCrlv();
-            ControllerCrlv conCrlv = new ControllerCrlv(jifCrlv, gCrlv.getCrlv().get(index));
+            ControllerCrlv conCrlv = new ControllerCrlv(jifCrlv, gCrlv.getCrlv().get(index), gCrlv);
             mw.getDesktop().add(jifCrlv);
              jifCrlv.setVisible(true);
             jifCrlv.getBtSalvar().setText("Salvar Alterações");
@@ -97,7 +97,7 @@ public class ControllerGerenciaCrlvs implements ActionListener{
     
     protected void adicionarCrlv(){
         ViewCrlv jifCrlv = new ViewCrlv();
-        ControllerCrlv conCrlv = new ControllerCrlv(jifCrlv, null);
+        ControllerCrlv conCrlv = new ControllerCrlv(jifCrlv, null, gCrlv);
         mw.getDesktop().add(jifCrlv);
         jifCrlv.setVisible(true);
     }
@@ -113,6 +113,7 @@ public class ControllerGerenciaCrlvs implements ActionListener{
                 
                 if(result == 1){
                     JOptionPane.showMessageDialog(mw, "Registro excluido com sucesso!");
+                    gCrlv.getCrlv().remove(tempCrlv);
                 }
                 else {
                     JOptionPane.showMessageDialog(mw, "Erro ao excluir registro!");
@@ -166,6 +167,10 @@ public class ControllerGerenciaCrlvs implements ActionListener{
         }
         else
             JOptionPane.showMessageDialog(mw, "Selecione um documento para ser assinado!");
+    }
+    
+    protected void recuperarDocumento(){
+        
     }
     
 }

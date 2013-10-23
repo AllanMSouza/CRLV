@@ -7,6 +7,7 @@ package compsi.crlv.controller;
 import compsi.crlv.DAO.DAOCrlv;
 import compsi.crlv.model.ModelCRLV;
 import compsi.crlv.view.ViewCrlv;
+import compsi.crlv.view.ViewGerenciarCrlvs;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
@@ -23,10 +24,12 @@ public class ControllerCrlv implements ActionListener {
     private DAOCrlv daoCrlv;
     private ViewCrlv jifCrlv;
     private ModelCRLV crlv;
+    private ViewGerenciarCrlvs gcrlv;
 
-    public ControllerCrlv(ViewCrlv tela, ModelCRLV c) {
+    public ControllerCrlv(ViewCrlv tela, ModelCRLV c, ViewGerenciarCrlvs g) {
         jifCrlv = tela;
         daoCrlv = new DAOCrlv();
+        gcrlv = g;
         
         if(c == null)
             crlv = new ModelCRLV();
@@ -65,6 +68,7 @@ public class ControllerCrlv implements ActionListener {
          ModelCRLV c = new ModelCRLV();
          c = jifCrlv.getModelCrlv(c, "adicionar");
          int result = daoCrlv.insert(c);
+         gcrlv.addCrlv(c);
          if(result == 1){
              JOptionPane.showMessageDialog(null, "Registro inserido com sucesso!");
              jifCrlv.dispose();
